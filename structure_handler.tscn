@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sjf38")
+metadata/activeTilemap = NodePath("")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -36,16 +37,19 @@ size_flags_stretch_ratio = 0.25
 [node name="structureBut1" type="Button" parent="VBoxContainer/buttonHolder/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+action_mode = 0
 text = "Structure 1"
 
 [node name="structureBut2" type="Button" parent="VBoxContainer/buttonHolder/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+action_mode = 0
 text = "Structure 2"
 
 [node name="structureBut3" type="Button" parent="VBoxContainer/buttonHolder/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+action_mode = 0
 text = "Structure 3"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/buttonHolder/HBoxContainer"]
