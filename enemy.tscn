@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1agteb2lcosr"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_2offh"]
+[ext_resource type="Texture2D" uid="uid://bx5dvtc0m5646" path="res://icon.svg" id="1_k5c3l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3psbd"]
+radius = 34.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_2offh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3psbd")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.258824, 0.254902, 0.254902, 1)
+scale = Vector2(0.475, 0.475)
+texture = ExtResource("1_k5c3l")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="InactivityTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
