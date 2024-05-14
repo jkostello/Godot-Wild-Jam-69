@@ -43,3 +43,4 @@ zoom = Vector2(0.355, 0.355)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="structure_handler" parent="CanvasLayer" instance=ExtResource("4_5b7vh")]
+metadata/activeTilemap = NodePath("../../TileMap")
