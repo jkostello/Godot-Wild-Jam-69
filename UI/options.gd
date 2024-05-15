@@ -21,13 +21,10 @@ func _ready():
 	_create_action_list()
 	hide()
 
-func _on_back_pressed():
-	hide()
-
-# Creates all remap buttons
+# Initially creates all remap buttons
 func _create_action_list():
 	InputMap.load_from_project_settings()
-	for item in action_list.get_children():
+	for item in action_list.get_children(): # Remove temp button
 		item.queue_free()
 		
 	# Loops through controls, adds button
@@ -63,20 +60,22 @@ func _input(event):
 			if (event is InputEventMouseButton && event.double_click):
 				event.double_click = false
 			
+			# Remove old action & add new one
 			InputMap.action_erase_events(action_to_remap)
 			InputMap.action_add_event(action_to_remap, event)
 			_update_action_list(remapping_button, event)
 			
+			# Reset variables
 			is_remapping = false
 			action_to_remap = null
 			remapping_button = null
 			
 			accept_event()
-			
-			
+
+# Displays new action text
 func _update_action_list(button, event):
 	button.find_child("InputLabel").text = event.as_text().trim_suffix(" (Physical)")
 
-
+# Reset all keybinds to default
 func _on_reset_button_pressed():
 	_create_action_list()
