@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2ypbvp32opvk"]
 
-[ext_resource type="PackedScene" uid="uid://bwdjvb3ldmgm7" path="res://input_button.tscn" id="1_1ijcl"]
-[ext_resource type="Script" path="res://options.gd" id="1_ifmx2"]
+[ext_resource type="Script" path="res://UI/options.gd" id="1_ifmx2"]
+[ext_resource type="PackedScene" uid="uid://bwdjvb3ldmgm7" path="res://UI/input_button.tscn" id="2_gpvu5"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -44,9 +44,16 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="InputButton" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_1ijcl")]
+[node name="InputButton" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_gpvu5")]
 layout_mode = 2
 
 [node name="ResetButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Reset to Default"
+
+[node name="Spacer" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"

@@ -1,0 +1,116 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg3hqbij4tfk6"]
+
+[ext_resource type="Script" path="res://UI/how_to_play.gd" id="1_ii15c"]
+
+[node name="HowToPlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ii15c")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -271.5
+offset_right = 250.0
+offset_bottom = 271.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "How To Play"
+
+[node name="Spacer" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "
+
+
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="controlsContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Controls" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/controlsContainer"]
+layout_mode = 2
+text = "Controls:"
+
+[node name="Spacer" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/controlsContainer"]
+layout_mode = 2
+
+[node name="upLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/controlsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Up: W"
+
+[node name="downLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/controlsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Down: S"
+
+[node name="leftLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/controlsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Left: A
+"
+
+[node name="rightLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/controlsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Right: D"
+
+[node name="Spacer" type="Control" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="descriptionContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/descriptionContainer"]
+layout_mode = 2
+text = "hehe haha this is how
+you play our game
+idk something about
+stopping void creachures
+from closing a black hole
+
+
+idk put the actual description
+here pls"
+horizontal_alignment = 2
+
+[node name="Spacer2" type="Control" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
