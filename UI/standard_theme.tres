@@ -1,0 +1,75 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://ca4ojcmrepr24"]
+
+[ext_resource type="FontFile" uid="uid://c2t1amxynu30o" path="res://UI/PublicPixel-E447g.ttf" id="1_gf2a0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ba0xe"]
+bg_color = Color(0, 0, 0, 0.556863)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.776471, 0.678431, 0.956863, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 30
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4md0i"]
+bg_color = Color(0, 0, 0, 0.556863)
+corner_radius_top_left = 15
+corner_radius_top_right = 30
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3llbp"]
+bg_color = Color(0, 0, 0, 0.556863)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(1, 0.8, 0.380392, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 30
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngdy3"]
+bg_color = Color(0.168627, 0.0901961, 0.305882, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.776471, 0.678431, 0.956863, 1)
+border_blend = true
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdbj1"]
+bg_color = Color(0.168627, 0.0901961, 0.305882, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.776471, 0.678431, 0.956863, 1)
+border_blend = true
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_size = 8
+
+[resource]
+Button/font_sizes/font_size = 42
+Button/fonts/font = ExtResource("1_gf2a0")
+Button/styles/hover = SubResource("StyleBoxFlat_ba0xe")
+Button/styles/normal = SubResource("StyleBoxFlat_4md0i")
+Button/styles/pressed = SubResource("StyleBoxFlat_3llbp")
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_gf2a0")
+Panel/styles/panel = SubResource("StyleBoxFlat_ngdy3")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_mdbj1")
