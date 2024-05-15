@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://xn4epdl40krm"]
 
-[ext_resource type="Script" path="res://Level/void.gd" id="1_bbfwi"]
-[ext_resource type="Texture2D" uid="uid://cpnrwp8ugkudo" path="res://Level/void orb dev1.png" id="1_v1ugm"]
+[ext_resource type="Script" path="res://void.gd" id="1_bbfwi"]
+[ext_resource type="Texture2D" uid="uid://cpnrwp8ugkudo" path="res://void orb dev1.png" id="1_v1ugm"]
 
 [node name="Void" type="Node2D"]
 script = ExtResource("1_bbfwi")
