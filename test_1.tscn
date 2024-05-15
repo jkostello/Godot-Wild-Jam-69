@@ -44,3 +44,6 @@ zoom = Vector2(0.355, 0.355)
 
 [node name="structure_handler" parent="CanvasLayer" instance=ExtResource("4_5b7vh")]
 metadata/activeTilemap = NodePath("../../TileMap")
+metadata/playerNode = NodePath("../../TileMap/Player")
+
+[node name="Turret" type="Node2D" parent="."]
