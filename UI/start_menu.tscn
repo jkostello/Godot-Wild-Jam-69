@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://qgmj66fv55ig"]
+[gd_scene load_steps=4 format=3 uid="uid://qgmj66fv55ig"]
 
 [ext_resource type="Script" path="res://UI/start_menu.gd" id="1_bwnhk"]
 [ext_resource type="PackedScene" uid="uid://d2ypbvp32opvk" path="res://UI/options.tscn" id="2_ui3rd"]
+[ext_resource type="PackedScene" uid="uid://bg3hqbij4tfk6" path="res://UI/how_to_play.tscn" id="3_bfi3k"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,6 +14,9 @@ grow_vertical = 2
 script = ExtResource("1_bwnhk")
 
 [node name="Options" parent="." instance=ExtResource("2_ui3rd")]
+layout_mode = 1
+
+[node name="HowToPlay" parent="." instance=ExtResource("3_bfi3k")]
 layout_mode = 1
 
 [node name="MainPanel" type="Panel" parent="."]
@@ -46,6 +50,10 @@ alignment = 1
 layout_mode = 2
 text = "Start"
 
+[node name="HowToPlay" type="Button" parent="MainPanel/VBoxContainer"]
+layout_mode = 2
+text = "How To Play"
+
 [node name="Options" type="Button" parent="MainPanel/VBoxContainer"]
 layout_mode = 2
 text = "Options
@@ -57,5 +65,6 @@ text = "Quit
 "
 
 [connection signal="pressed" from="MainPanel/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MainPanel/VBoxContainer/HowToPlay" to="." method="_on_how_to_play_pressed"]
 [connection signal="pressed" from="MainPanel/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MainPanel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
