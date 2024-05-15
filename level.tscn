@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://ckmh6gnitv64p"]
 
-[ext_resource type="PackedScene" uid="uid://bpg2lcg0737in" path="res://Structures/structure_handler.tscn" id="1_7h3wo"]
-[ext_resource type="Script" path="res://Level/level.gd" id="1_fnxtp"]
+[ext_resource type="PackedScene" uid="uid://bpg2lcg0737in" path="res://structure_handler.tscn" id="1_7h3wo"]
+[ext_resource type="Script" path="res://level.gd" id="1_fnxtp"]
 [ext_resource type="Texture2D" uid="uid://cqq6525or2suw" path="res://FLOOR1.png" id="3_c7bgw"]
-[ext_resource type="PackedScene" uid="uid://xn4epdl40krm" path="res://Level/void.tscn" id="3_gfdxi"]
-[ext_resource type="PackedScene" path="res://laser.tscn" id="4_t28y2"]
+[ext_resource type="PackedScene" uid="uid://xn4epdl40krm" path="res://void.tscn" id="3_gfdxi"]
+[ext_resource type="PackedScene" uid="uid://ba4q10sapjinu" path="res://laser.tscn" id="4_t28y2"]
 [ext_resource type="PackedScene" uid="uid://bkwa8366unv8y" path="res://player.tscn" id="5_w3uvl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j53cu"]
