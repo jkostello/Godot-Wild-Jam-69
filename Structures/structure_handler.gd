@@ -6,7 +6,7 @@ extends Control
 @onready var highlight_block : Sprite2D = $highlightBlock
 @onready var tile_map : TileMap = get_node(self.get_meta("activeTilemap"))
 @onready var player : Node2D = get_node(self.get_meta("playerNode"))
-@onready var turret = preload("res://turret.tscn")
+@onready var turret = preload("res://Structures/turret.tscn")
 
 var structure_selected = 0
 var clicked_cell := Vector2.ZERO
