@@ -1,9 +1,11 @@
 extends Control
 
+@onready var optionsBackButton = get_node("Options/PanelContainer/MarginContainer/VBoxContainer/BackButton")
+
 # Hide options on start
 func _ready():
 	$Options.hide()
-	$BackButton.hide()
+	optionsBackButton.pressed.connect(_on_options_back_button_pressed)
 
 # Change to main level
 func _on_start_pressed():
@@ -12,13 +14,11 @@ func _on_start_pressed():
 # 
 func _on_options_pressed():
 	$Options.show()
-	$BackButton.show()
-	$Panel.hide()
+	$MainPanel.hide()
 
 func _on_quit_pressed():
 	get_tree().quit()
 
-func _on_back_button_pressed():
+func _on_options_back_button_pressed():
 	$Options.hide()
-	$BackButton.hide()
-	$Panel.show()
+	$MainPanel.show()
