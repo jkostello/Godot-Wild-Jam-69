@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpg2lcg0737in"]
+[gd_scene load_steps=3 format=3 uid="uid://bpg2lcg0737in"]
 
 [ext_resource type="Script" path="res://structure_handler.gd" id="1_sjf38"]
+[ext_resource type="Texture2D" uid="uid://y1qtlj332y4q" path="res://green_highlight.png" id="2_4xf2m"]
 
 [node name="structure_handler" type="Control"]
 layout_mode = 3
@@ -11,6 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sjf38")
 metadata/activeTilemap = NodePath("")
+metadata/playerNode = NodePath("")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -56,6 +58,13 @@ text = "Structure 3"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
+
+[node name="highlightBlock" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 0.831373, 0, 0.294118)
+top_level = true
+texture = ExtResource("2_4xf2m")
+offset = Vector2(0, -72)
 
 [connection signal="pressed" from="VBoxContainer/buttonHolder/HBoxContainer/structureBut1" to="." method="onButtonPressed" binds= [1]]
 [connection signal="pressed" from="VBoxContainer/buttonHolder/HBoxContainer/structureBut2" to="." method="onButtonPressed" binds= [2]]
