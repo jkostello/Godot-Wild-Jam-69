@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpg2lcg0737in"]
 
-[ext_resource type="Script" path="res://structure_handler.gd" id="1_sjf38"]
+[ext_resource type="Script" path="res://Structures/structure_handler.gd" id="1_sjf38"]
 [ext_resource type="Texture2D" uid="uid://y1qtlj332y4q" path="res://green_highlight.png" id="2_4xf2m"]
 
 [node name="structure_handler" type="Control"]

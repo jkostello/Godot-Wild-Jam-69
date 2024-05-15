@@ -1,12 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://qi0ib3d4ue75"]
 
-[ext_resource type="Texture2D" uid="uid://4w27ser6yj2y" path="res://Isometric_cube.png" id="1_bx4g2"]
-[ext_resource type="Texture2D" uid="uid://cpnrwp8ugkudo" path="res://void orb dev1.png" id="2_skdbx"]
-[ext_resource type="PackedScene" uid="uid://bkwa8366unv8y" path="res://player.tscn" id="3_07gg8"]
-[ext_resource type="PackedScene" uid="uid://bpg2lcg0737in" path="res://structure_handler.tscn" id="4_5b7vh"]
+[ext_resource type="Texture2D" uid="uid://4w27ser6yj2y" path="res://Isometric_cube.png" id="1_5mo6h"]
+[ext_resource type="Texture2D" uid="uid://cpnrwp8ugkudo" path="res://Level/void orb dev1.png" id="2_6gcmc"]
+[ext_resource type="PackedScene" uid="uid://bkwa8366unv8y" path="res://player.tscn" id="3_pr6dd"]
+[ext_resource type="PackedScene" uid="uid://bpg2lcg0737in" path="res://Structures/structure_handler.tscn" id="4_711r2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfj13"]
-texture = ExtResource("1_bx4g2")
+texture = ExtResource("1_5mo6h")
 texture_region_size = Vector2i(272, 156)
 0:0/size_in_atlas = Vector2i(1, 2)
 0:0/next_alternative_id = 2
@@ -30,9 +30,9 @@ layer_0/tile_data = PackedInt32Array(131073, 7, 0, 196608, 7, 0, 262143, 7, 0, 2
 [node name="VoidOrbDev" type="Sprite2D" parent="TileMap"]
 y_sort_enabled = true
 position = Vector2(0, -65)
-texture = ExtResource("2_skdbx")
+texture = ExtResource("2_6gcmc")
 
-[node name="Player" parent="TileMap" instance=ExtResource("3_07gg8")]
+[node name="Player" parent="TileMap" instance=ExtResource("3_pr6dd")]
 position = Vector2(409, 394)
 speed = 3000.0
 
@@ -42,7 +42,7 @@ zoom = Vector2(0.355, 0.355)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="structure_handler" parent="CanvasLayer" instance=ExtResource("4_5b7vh")]
+[node name="structure_handler" parent="CanvasLayer" instance=ExtResource("4_711r2")]
 metadata/activeTilemap = NodePath("../../TileMap")
 metadata/playerNode = NodePath("../../TileMap/Player")
 

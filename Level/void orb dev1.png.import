@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvnbxf5ey3028"
-path="res://.godot/imported/turret dev.png-1382985c175b42ed47124c35eb80c1a1.ctex"
+uid="uid://cpnrwp8ugkudo"
+path="res://.godot/imported/void orb dev1.png-5117f4f68333e210bd66773e0ff6ea66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://turret dev.png"
-dest_files=["res://.godot/imported/turret dev.png-1382985c175b42ed47124c35eb80c1a1.ctex"]
+source_file="res://Level/void orb dev1.png"
+dest_files=["res://.godot/imported/void orb dev1.png-5117f4f68333e210bd66773e0ff6ea66.ctex"]
 
 [params]
 
