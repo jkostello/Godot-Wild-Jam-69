@@ -34,6 +34,7 @@ script = ExtResource("1_fnxtp")
 
 [node name="structure_handler" parent="CanvasLayer" instance=ExtResource("1_7h3wo")]
 metadata/activeTilemap = NodePath("../../TileMap")
+metadata/playerNode = NodePath("../../Player")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_w3uvl")]
 z_index = 1
