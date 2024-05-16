@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ba4q10sapjinu"]
+[gd_scene load_steps=4 format=3 uid="uid://bgj4vp25lv1gd"]
 
 [ext_resource type="Script" path="res://laser.gd" id="1_gukvq"]
 [ext_resource type="Texture2D" uid="uid://bx5dvtc0m5646" path="res://icon.svg" id="2_1qkrw"]
@@ -20,7 +20,7 @@ texture = ExtResource("2_1qkrw")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
-collision_mask = 4
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_sbyg6")
