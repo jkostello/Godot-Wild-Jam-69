@@ -1,12 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckmh6gnitv64p"]
+[gd_scene load_steps=10 format=3 uid="uid://ckmh6gnitv64p"]
 
 [ext_resource type="PackedScene" uid="uid://bpg2lcg0737in" path="res://structure_handler.tscn" id="1_7h3wo"]
 [ext_resource type="Script" path="res://level.gd" id="1_fnxtp"]
 [ext_resource type="Texture2D" uid="uid://cqq6525or2suw" path="res://FLOOR1.png" id="3_c7bgw"]
 [ext_resource type="PackedScene" uid="uid://xn4epdl40krm" path="res://void.tscn" id="3_gfdxi"]
-[ext_resource type="PackedScene" uid="uid://bgj4vp25lv1gd" path="res://laser.tscn" id="4_t28y2"]
+[ext_resource type="PackedScene" uid="uid://ba4q10sapjinu" path="res://laser.tscn" id="4_t28y2"]
 [ext_resource type="PackedScene" uid="uid://bkwa8366unv8y" path="res://player.tscn" id="5_w3uvl"]
-[ext_resource type="PackedScene" uid="uid://c7waafyi0ya1x" path="res://resources/resource.tscn" id="7_x52pj"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j53cu"]
 vertices = PackedVector2Array(150, 0, 0, 75, -150, 0, 0, -75)
@@ -50,12 +49,21 @@ layer_0/tile_data = PackedInt32Array(-196610, 2, 0, -131075, 2, 0, -65539, 2, 0,
 
 [node name="Void" parent="TileMap" instance=ExtResource("3_gfdxi")]
 
+[node name="Laser" parent="." instance=ExtResource("4_t28y2")]
+position = Vector2(-820, 433)
+rotation = -0.675106
+
+[node name="Laser2" parent="." instance=ExtResource("4_t28y2")]
+position = Vector2(-676, -433)
+rotation = 0.580251
+
 [node name="Laser3" parent="." instance=ExtResource("4_t28y2")]
 position = Vector2(696, 373)
 rotation = -2.50431
 
+[node name="Laser4" parent="." instance=ExtResource("4_t28y2")]
+position = Vector2(681, -424)
+rotation = 2.38678
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.35, 0.35)
-
-[node name="resource" parent="." instance=ExtResource("7_x52pj")]
-position = Vector2(-563, 612)
