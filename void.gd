@@ -6,7 +6,7 @@ extends Node2D
 func _physics_process(delta):
 	randomize()
 	
-	# Randomizes spawning & location
+	# Randomizes enemy spawning & location
 	if randi_range(0, 100) < 1:
 		var new_e = enemy.instantiate()
 		get_tree().current_scene.add_child(new_e)
