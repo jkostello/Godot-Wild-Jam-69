@@ -23,9 +23,8 @@ func _physics_process(delta):
 	# Increase turret durability
 	# TODO: slow down repair
 	if (repairing and (durability < 100 and player.resource >0)):
-			structure_handler.updateScrapUI()
-			durability += 1
-			player.resource -= 1
+		structure_handler.updateScrapUI(-1)
+		durability += 1
 
 
 # Enable player repairing or add enemy
