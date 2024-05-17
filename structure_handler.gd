@@ -6,9 +6,13 @@ extends Control
 @onready var dcButton : Button = $VBoxContainer/buttonHolder/HBoxContainer/dcButton
 @onready var highlight_block : Sprite2D = $highlightBlock
 @onready var tile_map : TileMap = get_node(self.get_meta("activeTilemap"))
+
+@onready var conveyor = preload("res://conveyor.tscn")
 @onready var turret = preload("res://turret.tscn")
+var Structures : Array = []
 @onready var player : Node2D = get_node(self.get_meta("playerNode"))
 
+@export var conveyorCost : int = 5
 @export var turretCost : int = 15
 var structure_selected = 0
 var spaceTaken : bool = false
@@ -31,6 +35,7 @@ func checkSpace():
 			if turret.position == coords:
 				spaceTaken = true
 				return turret
+	spaceTaken = false
 	return false
 
 func getBlockVector():
@@ -40,15 +45,18 @@ func getBlockVector():
 	
 	if coords.distance_to(player.position) < 500:
 		checkedSpace = checkSpace()
-		if structure_selected != 4 and checkedSpace is bool: # If in range and valid space, color green
+		if structure_selected != 4 and not spaceTaken: # If in range and valid space, color green
 			highlight_block.modulate = Color(0,1,0,0.3)
-		elif structure_selected == 4 and checkedSpace is Node2D: #If destructing and tile is occupied, color orange
+		elif structure_selected == 4 and spaceTaken: #If destructing and tile is occupied, color orange
 			highlight_block.modulate = Color(255,165,0,0.3)
 		else:
 			highlight_block.modulate = Color(1,0,0,0.3) #if no checks are valid, color red
 	else: # If not in range, color red
 		highlight_block.modulate = Color(1,0,0,0.3)
 
+func endBuild():
+	highlight_block.visible = false
+	structure_selected = 0
 # Called on structure button press
 # Selects correct structure, shows highlight block
 func onButtonPressed(butNum):
@@ -71,25 +79,34 @@ func updateScrapUI(newScrap):
 		structure_but_1.disabled = true
 	else:
 		structure_but_1.disabled = false
+	if player.resource < conveyorCost:
+			structure_but_2.disabled = true
+	else:
+		structure_but_2.disabled = false
 
 # Creates structures
 func buildStructure():
 	var newScrap : int
 	# Create structure 1
 	if checkedSpace is bool:
+		
 		if structure_selected == 1 and player.resource >= turretCost:
 			newScrap = -turretCost
 			var new_t = turret.instantiate()
 			get_tree().current_scene.add_child(new_t)
 			new_t.position = coords
-			highlight_block.visible = false
-			structure_selected = 0
+			endBuild()
+		elif structure_selected == 2 and player.resource >= conveyorCost:
+			player.resource -= conveyorCost
+			var new_c = conveyor.instantiate()
+			get_tree().current_scene.add_child(new_c)
+			new_c.position = coords
+			endBuild()
 	# Destruct
 	elif structure_selected == 4:
 		checkedSpace.queue_free()
 		newScrap = floor(turretCost) / 3
-		highlight_block.visible = false
-		structure_selected = 0
+		endBuild()
 		
 	updateScrapUI(newScrap)
 	
