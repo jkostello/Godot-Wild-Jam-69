@@ -13,7 +13,11 @@ var input_actions = {
 	"up": "Up",
 	"down": "Down",
 	"left": "Left",
-	"right": "Right"
+	"right": "Right",
+	"select_structure_1": "Select Structure 1",
+	"select_structure_2": "Select Structure 2",
+	"select_structure_3": "Select Structure 3",
+	"deselect": "Deselect"
 }
 
 

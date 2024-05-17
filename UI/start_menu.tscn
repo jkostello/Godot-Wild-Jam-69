@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://qgmj66fv55ig"]
+[gd_scene load_steps=6 format=3 uid="uid://qgmj66fv55ig"]
 
 [ext_resource type="Script" path="res://UI/start_menu.gd" id="1_bwnhk"]
 [ext_resource type="PackedScene" uid="uid://d2ypbvp32opvk" path="res://UI/options.tscn" id="2_ui3rd"]
 [ext_resource type="PackedScene" uid="uid://bg3hqbij4tfk6" path="res://UI/how_to_play.tscn" id="3_bfi3k"]
 [ext_resource type="Theme" uid="uid://ca4ojcmrepr24" path="res://UI/standard_theme.tres" id="4_xn50i"]
+[ext_resource type="AudioStream" uid="uid://b1m6cyjai3rco" path="res://UI/button_press.mp3" id="5_n0tlp"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -68,7 +69,11 @@ theme = ExtResource("4_xn50i")
 text = "Quit
 "
 
+[node name="buttonPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_n0tlp")
+
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/HowToPlay" to="." method="_on_how_to_play_pressed"]
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="finished" from="buttonPress" to="." method="_on_button_press_finished"]
