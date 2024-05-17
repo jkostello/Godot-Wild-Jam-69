@@ -74,10 +74,11 @@ func updateScrapUI(newScrap):
 
 # Creates structures
 func buildStructure():
+	var newScrap : int
 	# Create structure 1
 	if checkedSpace is bool:
 		if structure_selected == 1 and player.resource >= turretCost:
-			updateScrapUI(-(turretCost))
+			newScrap = -turretCost
 			var new_t = turret.instantiate()
 			get_tree().current_scene.add_child(new_t)
 			new_t.position = coords
@@ -86,9 +87,11 @@ func buildStructure():
 	# Destruct
 	elif structure_selected == 4:
 		checkedSpace.queue_free()
-		updateScrapUI(floor(turretCost) / 3)
+		newScrap = floor(turretCost) / 3
 		highlight_block.visible = false
 		structure_selected = 0
+		
+	updateScrapUI(newScrap)
 	
 
 func _input(event):
