@@ -6,11 +6,10 @@ extends Control
 @onready var dcButton : Button = $VBoxContainer/buttonHolder/HBoxContainer/dcButton
 @onready var highlight_block : Sprite2D = $highlightBlock
 @onready var tile_map : TileMap = get_node(self.get_meta("activeTilemap"))
-@onready var player : Node2D = get_node(self.get_meta("playerNode"))
 @onready var turret = preload("res://turret.tscn")
+@onready var player : Node2D = get_node(self.get_meta("playerNode"))
 
 @export var turretCost : int = 15
-var scrap : int = 0
 var structure_selected = 0
 var spaceTaken : bool = false
 var clicked_cell := Vector2.ZERO
@@ -50,10 +49,8 @@ func getBlockVector():
 	else: # If not in range, color red
 		highlight_block.modulate = Color(1,0,0,0.3)
 
-#I hate github
 # Called on structure button press
 # Selects correct structure, shows highlight block
-# TODO: finish structures 2 & 3
 func onButtonPressed(butNum):
 	highlight_block.visible = true
 	match butNum:
@@ -67,8 +64,8 @@ func onButtonPressed(butNum):
 			structure_selected = 4
 
 func updateScrapUI():
-	scrapReadout.set_text(str("[center]\nScrap\n",scrap,"[/center]"))
-	if scrap < turretCost:
+	scrapReadout.set_text(str("[center]\nScrap\n",player.resource,"[/center]"))
+	if player.resource < turretCost:
 		structure_but_1.disabled = true
 	else:
 		structure_but_1.disabled = false
@@ -77,17 +74,17 @@ func updateScrapUI():
 func buildStructure():
 	# Create structure 1
 	if checkedSpace is bool:
-		if structure_selected != 4:
-			if structure_selected == 1 and scrap >= turretCost:
-				scrap -= turretCost
-				var new_t = turret.instantiate()
-				get_tree().current_scene.add_child(new_t)
-				new_t.position = coords
-				highlight_block.visible = false
-				structure_selected = 0
+		if structure_selected == 1 and player.resource >= turretCost:
+			player.resource -= turretCost
+			var new_t = turret.instantiate()
+			get_tree().current_scene.add_child(new_t)
+			new_t.position = coords
+			highlight_block.visible = false
+			structure_selected = 0
+	# Destruct
 	elif structure_selected == 4:
 		checkedSpace.queue_free()
-		scrap += floor(turretCost) / 3
+		player.resource += floor(turretCost) / 3
 		highlight_block.visible = false
 		structure_selected = 0
 		
@@ -110,6 +107,6 @@ func _input(event):
 		
 		#INDEV FUNCTION, INCREASES SCRAP BY 10
 		if (Input.is_key_pressed(KEY_0) and not event.is_echo()):
-			scrap += 10
+			player.resource += 10
 			updateScrapUI()
 

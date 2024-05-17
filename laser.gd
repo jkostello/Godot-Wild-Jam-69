@@ -2,6 +2,8 @@ extends Node2D
 
 @export var durability := 100.0
 @onready var player = get_node("/root/Level/Player")
+@onready var structure_handler = get_node("/root/Level/CanvasLayer/structure_handler")
+
 var colliding_enemies := 0
 var repairing := false
 
@@ -21,6 +23,7 @@ func _physics_process(delta):
 	# Increase turret durability
 	# TODO: slow down repair
 	if (repairing and (durability < 100 and player.resource >0)):
+			structure_handler.updateScrapUI()
 			durability += 1
 			player.resource -= 1
 
