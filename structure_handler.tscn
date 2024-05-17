@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpg2lcg0737in"]
+[gd_scene load_steps=11 format=3 uid="uid://bpg2lcg0737in"]
 
 [ext_resource type="Script" path="res://structure_handler.gd" id="1_sjf38"]
 [ext_resource type="Texture2D" uid="uid://y1qtlj332y4q" path="res://green_highlight.png" id="2_4xf2m"]
@@ -9,6 +9,8 @@
 [sub_resource type="InputEventKey" id="InputEventKey_d7qj1"]
 device = -1
 keycode = 49
+physical_keycode = 49
+key_label = 49
 unicode = 49
 
 [sub_resource type="Shortcut" id="Shortcut_kbh82"]
@@ -21,6 +23,8 @@ unicode = 50
 
 [sub_resource type="Shortcut" id="Shortcut_4ors3"]
 events = [SubResource("InputEventKey_igxi0")]
+
+[sub_resource type="Shortcut" id="Shortcut_voyqk"]
 
 [node name="structure_handler" type="Control"]
 layout_mode = 3
@@ -56,17 +60,18 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
 
 [node name="scrapLabel" type="RichTextLabel" parent="VBoxContainer/buttonHolder/HBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_74kgc")
 bbcode_enabled = true
 text = "
 [center]Scrap 
-
 0[/center]"
 shortcut_keys_enabled = false
 visible_characters_behavior = 1
 
 [node name="structureBut1" type="Button" parent="VBoxContainer/buttonHolder/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_74kgc")
@@ -78,6 +83,7 @@ text = "Gun Turret
 Cost: 15 Scrap"
 
 [node name="structureBut2" type="Button" parent="VBoxContainer/buttonHolder/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_74kgc")
@@ -85,18 +91,22 @@ theme_override_font_sizes/font_size = 20
 disabled = true
 action_mode = 0
 shortcut = SubResource("Shortcut_4ors3")
-text = "Structure 2"
+text = "Conveyor Belt
+Cost: 5"
 
 [node name="structureBut3" type="Button" parent="VBoxContainer/buttonHolder/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_74kgc")
 theme_override_font_sizes/font_size = 20
 disabled = true
 action_mode = 0
+shortcut = SubResource("Shortcut_voyqk")
 text = "Structure 3"
 
 [node name="dcButton" type="Button" parent="VBoxContainer/buttonHolder/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
