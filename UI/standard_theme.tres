@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://ca4ojcmrepr24"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://ca4ojcmrepr24"]
 
 [ext_resource type="FontFile" uid="uid://c2t1amxynu30o" path="res://UI/PublicPixel-E447g.ttf" id="1_gf2a0"]
 
@@ -34,6 +34,10 @@ corner_radius_top_left = 15
 corner_radius_top_right = 30
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 30
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngdy3"]
 bg_color = Color(0.168627, 0.0901961, 0.305882, 1)
@@ -63,6 +67,44 @@ corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 shadow_size = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3i3j"]
+bg_color = Color(0, 0, 0, 0.556863)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.776471, 0.678431, 0.956863, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 20
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yvlsa"]
+bg_color = Color(0, 0, 0, 0.556863)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.8, 0.380392, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 20
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 20
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8puos"]
+bg_color = Color(0, 0, 0, 0.556863)
+border_color = Color(0, 0, 0, 0.556863)
+corner_radius_top_left = 10
+corner_radius_top_right = 20
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 20
+
 [resource]
 Button/font_sizes/font_size = 42
 Button/fonts/font = ExtResource("1_gf2a0")
@@ -73,3 +115,8 @@ Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_gf2a0")
 Panel/styles/panel = SubResource("StyleBoxFlat_ngdy3")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_mdbj1")
+TabContainer/font_sizes/font_size = 12
+TabContainer/fonts/font = ExtResource("1_gf2a0")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_i3i3j")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_yvlsa")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_8puos")
