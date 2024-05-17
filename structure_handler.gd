@@ -1,15 +1,9 @@
 extends Control
-@onready var scrapReadout : RichTextLabel = $VBoxContainer/buttonHolder/HBoxContainer/MarginContainer2/scrapLabel
-@onready var structure_but_1 : Button = $VBoxContainer/buttonHolder/HBoxContainer/structureBut1
-@onready var structure_but_2 : Button = $VBoxContainer/buttonHolder/HBoxContainer/structureBut2
-@onready var structure_but_3 : Button = $VBoxContainer/buttonHolder/HBoxContainer/structureBut3
-@onready var dcButton : Button = $VBoxContainer/buttonHolder/HBoxContainer/dcButton
 @onready var highlight_block : Sprite2D = $highlightBlock
-@onready var tile_map : TileMap = get_node(self.get_meta("activeTilemap"))
 
+@onready var tile_map : TileMap = get_node(self.get_meta("activeTilemap"))
 @onready var conveyor = preload("res://conveyor.tscn")
 @onready var turret = preload("res://turret.tscn")
-var Structures : Array = []
 @onready var player : Node2D = get_node(self.get_meta("playerNode"))
 
 @export var conveyorCost : int = 5
@@ -20,9 +14,15 @@ var clicked_cell := Vector2.ZERO
 var coords := Vector2.ZERO
 var checkedSpace
 var struct_r = 0
+var Structures : Array = []
 
 # Remove highlight_block from structure_handler, add to level
 func _ready():
+	# Update button shortcuts
+	%structureBut1.shortcut.events = InputMap.action_get_events("select_structure_1")
+	%structureBut2.shortcut.events = InputMap.action_get_events("select_structure_2")
+	%structureBut3.shortcut.events = InputMap.action_get_events("select_structure_3")
+	
 	self.remove_child(highlight_block)
 	get_tree().current_scene.call_deferred("add_child", highlight_block)
 
@@ -85,6 +85,7 @@ func endBuild():
 	for child in highlight_block.get_children():
 		child.visible = false
 	structure_selected = 0
+	
 # Called on structure button press
 # Selects correct structure, shows highlight block
 func onButtonPressed(butNum):
@@ -107,15 +108,15 @@ func onButtonPressed(butNum):
 # Adjusts player's scrap value, updates display text
 func updateScrapUI(newScrap):
 	player.resource += newScrap
-	scrapReadout.set_text(str("[center]\nScrap\n",player.resource,"[/center]"))
+	%scrapLabel.set_text(str("[center]\nScrap\n",player.resource,"[/center]"))
 	if player.resource < turretCost:
-		structure_but_1.disabled = true
+		%structureBut1.disabled = true
 	else:
-		structure_but_1.disabled = false
+		%structureBut1.disabled = false
 	if player.resource < conveyorCost:
-			structure_but_2.disabled = true
+			%structureBut2.disabled = true
 	else:
-		structure_but_2.disabled = false
+		%structureBut2.disabled = false
 
 # Creates structures
 func buildStructure():
@@ -159,7 +160,7 @@ func _input(event):
 			
 	# If space pressed, deselect structure
 	if event is InputEventKey:
-		if (Input.is_key_pressed(KEY_SPACE) and not event.is_echo()):
+		if (Input.is_action_pressed("deselect") and not event.is_echo()):
 			structure_selected = 0
 			highlight_block.visible = false
 		if (Input.is_key_pressed(KEY_R) and not event.is_echo()):

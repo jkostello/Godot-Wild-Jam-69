@@ -180,6 +180,7 @@ visible = false
 layout_mode = 2
 
 [node name="TurretContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Turret"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("2_pn2y8")
@@ -195,7 +196,7 @@ theme_override_font_sizes/font_size = 18
 text = "A basic turret for
 killing enemies.
 
-Cost: 10 Scrap
+Cost: 15 Scrap
 Damage: xx hp
 Fire Rate: xx bps"
 
