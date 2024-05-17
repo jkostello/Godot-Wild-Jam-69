@@ -1,24 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpg2lcg0737in"]
+[gd_scene load_steps=4 format=3 uid="uid://bpg2lcg0737in"]
 
 [ext_resource type="Script" path="res://structure_handler.gd" id="1_sjf38"]
 [ext_resource type="Texture2D" uid="uid://y1qtlj332y4q" path="res://green_highlight.png" id="2_4xf2m"]
 [ext_resource type="Theme" uid="uid://ca4ojcmrepr24" path="res://UI/standard_theme.tres" id="2_74kgc"]
-
-[sub_resource type="InputEventKey" id="InputEventKey_d7qj1"]
-device = -1
-keycode = 49
-unicode = 49
-
-[sub_resource type="Shortcut" id="Shortcut_kbh82"]
-events = [SubResource("InputEventKey_d7qj1")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_igxi0"]
-device = -1
-keycode = 50
-unicode = 50
-
-[sub_resource type="Shortcut" id="Shortcut_4ors3"]
-events = [SubResource("InputEventKey_igxi0")]
 
 [node name="structure_handler" type="Control"]
 layout_mode = 3
@@ -53,36 +37,20 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
 
-[node name="scrapLabel" type="RichTextLabel" parent="VBoxContainer/buttonHolder/HBoxContainer/MarginContainer2"]
-layout_mode = 2
-theme = ExtResource("2_74kgc")
-bbcode_enabled = true
-text = "
-[center]Scrap 
-
-0[/center]"
-shortcut_keys_enabled = false
-visible_characters_behavior = 1
-
 [node name="structureBut1" type="Button" parent="VBoxContainer/buttonHolder/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_74kgc")
 theme_override_font_sizes/font_size = 20
-disabled = true
 action_mode = 0
-shortcut = SubResource("Shortcut_kbh82")
-text = "Gun Turret
-Cost: 15 Scrap"
+text = "Structure 1"
 
 [node name="structureBut2" type="Button" parent="VBoxContainer/buttonHolder/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_74kgc")
 theme_override_font_sizes/font_size = 20
-disabled = true
 action_mode = 0
-shortcut = SubResource("Shortcut_4ors3")
 text = "Structure 2"
 
 [node name="structureBut3" type="Button" parent="VBoxContainer/buttonHolder/HBoxContainer"]
@@ -90,17 +58,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_74kgc")
 theme_override_font_sizes/font_size = 20
-disabled = true
 action_mode = 0
 text = "Structure 3"
 
-[node name="dcButton" type="Button" parent="VBoxContainer/buttonHolder/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/buttonHolder/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
-theme = ExtResource("2_74kgc")
-theme_override_font_sizes/font_size = 14
-text = "Destruct"
 
 [node name="highlightBlock" type="Sprite2D" parent="."]
 visible = false
@@ -112,4 +76,3 @@ offset = Vector2(0, -72)
 [connection signal="pressed" from="VBoxContainer/buttonHolder/HBoxContainer/structureBut1" to="." method="onButtonPressed" binds= [1]]
 [connection signal="pressed" from="VBoxContainer/buttonHolder/HBoxContainer/structureBut2" to="." method="onButtonPressed" binds= [2]]
 [connection signal="pressed" from="VBoxContainer/buttonHolder/HBoxContainer/structureBut3" to="." method="onButtonPressed" binds= [3]]
-[connection signal="pressed" from="VBoxContainer/buttonHolder/HBoxContainer/dcButton" to="." method="onButtonPressed" binds= [4]]

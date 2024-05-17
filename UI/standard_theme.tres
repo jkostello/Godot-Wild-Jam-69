@@ -64,8 +64,6 @@ corner_radius_bottom_left = 12
 shadow_size = 8
 
 [resource]
-default_font = ExtResource("1_gf2a0")
-default_font_size = 13
 Button/font_sizes/font_size = 42
 Button/fonts/font = ExtResource("1_gf2a0")
 Button/styles/hover = SubResource("StyleBoxFlat_ba0xe")
