@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpg2lcg0737in"]
+[gd_scene load_steps=10 format=3 uid="uid://bpg2lcg0737in"]
 
 [ext_resource type="Script" path="res://structure_handler.gd" id="1_sjf38"]
 [ext_resource type="Texture2D" uid="uid://y1qtlj332y4q" path="res://green_highlight.png" id="2_4xf2m"]
 [ext_resource type="Theme" uid="uid://ca4ojcmrepr24" path="res://UI/standard_theme.tres" id="2_74kgc"]
+[ext_resource type="Texture2D" uid="uid://bovyjmr7u858l" path="res://veyror.png" id="4_63e0l"]
+[ext_resource type="Texture2D" uid="uid://cvnbxf5ey3028" path="res://turret dev.png" id="5_k7ex3"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_d7qj1"]
 device = -1
@@ -108,6 +110,14 @@ modulate = Color(0, 0.831373, 0, 0.294118)
 top_level = true
 texture = ExtResource("2_4xf2m")
 offset = Vector2(0, -72)
+
+[node name="conveyorSprite" type="Sprite2D" parent="highlightBlock"]
+visible = false
+texture = ExtResource("4_63e0l")
+
+[node name="turretSprite" type="Sprite2D" parent="highlightBlock"]
+visible = false
+texture = ExtResource("5_k7ex3")
 
 [connection signal="pressed" from="VBoxContainer/buttonHolder/HBoxContainer/structureBut1" to="." method="onButtonPressed" binds= [1]]
 [connection signal="pressed" from="VBoxContainer/buttonHolder/HBoxContainer/structureBut2" to="." method="onButtonPressed" binds= [2]]

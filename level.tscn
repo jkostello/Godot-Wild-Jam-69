@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xn4epdl40krm" path="res://void.tscn" id="3_gfdxi"]
 [ext_resource type="PackedScene" uid="uid://bgj4vp25lv1gd" path="res://laser.tscn" id="4_t28y2"]
 [ext_resource type="PackedScene" uid="uid://bkwa8366unv8y" path="res://player.tscn" id="5_w3uvl"]
-[ext_resource type="PackedScene" path="res://conveyor.tscn" id="7_hu7mx"]
+[ext_resource type="PackedScene" uid="uid://dpmmqadkrpebq" path="res://conveyor.tscn" id="7_hu7mx"]
 [ext_resource type="PackedScene" uid="uid://c7waafyi0ya1x" path="res://resources/resource.tscn" id="8_d4m44"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j53cu"]
