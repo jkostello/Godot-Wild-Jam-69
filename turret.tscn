@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc7jnlk2wnac4"]
+[gd_scene load_steps=4 format=3 uid="uid://bo3mswpai0sp6"]
 
 [ext_resource type="PackedScene" uid="uid://b1kv3djwawgx" path="res://structure.tscn" id="1_odcfn"]
 [ext_resource type="Script" path="res://turret.gd" id="2_eq845"]
