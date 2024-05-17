@@ -33,6 +33,7 @@ func getBlockVector():
 	else: # If not in range, color red
 		highlight_block.modulate = Color(1,0,0,0.3)
 
+#I hate github
 # Called on structure button press
 # Selects correct structure, shows highlight block
 # TODO: finish structures 2 & 3
