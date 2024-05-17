@@ -19,6 +19,7 @@ var spaceTaken : bool = false
 var clicked_cell := Vector2.ZERO
 var coords := Vector2.ZERO
 var checkedSpace
+var struct_r = 0
 
 # Remove highlight_block from structure_handler, add to level
 func _ready():
@@ -31,10 +32,10 @@ func _process(delta):
 	highlight_block.position = coords
 
 func checkSpace():
-	for turret in get_tree().get_nodes_in_group("Turret"):
-			if turret.position == coords:
+	for struct in Structures:
+			if struct.position == coords:
 				spaceTaken = true
-				return turret
+				return struct
 	spaceTaken = false
 	return false
 
@@ -47,28 +48,60 @@ func getBlockVector():
 		checkedSpace = checkSpace()
 		if structure_selected != 4 and not spaceTaken: # If in range and valid space, color green
 			highlight_block.modulate = Color(0,1,0,0.3)
+			rotConveyor() #rotates the conveyor highlight sprite
 		elif structure_selected == 4 and spaceTaken: #If destructing and tile is occupied, color orange
 			highlight_block.modulate = Color(255,165,0,0.3)
+			highlight_block.self_modulate = Color(0,0,0,0)
+			match checkedSpace.value:
+				1:
+					highlight_block.get_child(0).visible = true
+				2:
+					highlight_block.get_child(1).visible = true
 		else:
 			highlight_block.modulate = Color(1,0,0,0.3) #if no checks are valid, color red
+			highlight_block.self_modulate = Color(1,1,1,1)
+			for child in highlight_block.get_children():
+				child.visible = false
 	else: # If not in range, color red
 		highlight_block.modulate = Color(1,0,0,0.3)
 
+func rotConveyor():
+	match struct_r:
+				0:
+					highlight_block.get_child(1).flip_h = true
+					highlight_block.get_child(1).flip_v = true # Change this to vertical sprite
+				1:
+					highlight_block.get_child(1).flip_h = false
+					highlight_block.get_child(1).flip_v = true # Change this to vertical sprite
+				2:
+					highlight_block.get_child(1).flip_h = false
+					highlight_block.get_child(1).flip_v = false # Change this to vertical sprite
+				3:
+					highlight_block.get_child(1).flip_h = true
+					highlight_block.get_child(1).flip_v = false
+
 func endBuild():
 	highlight_block.visible = false
+	for child in highlight_block.get_children():
+		child.visible = false
 	structure_selected = 0
 # Called on structure button press
 # Selects correct structure, shows highlight block
 func onButtonPressed(butNum):
 	highlight_block.visible = true
+	if butNum != 4:
+		highlight_block.self_modulate = Color(0,0,0,0)
 	match butNum:
 		1: # Turret
 			structure_selected = 1
+			highlight_block.get_child(0).visible = true
 		2:
 			structure_selected = 2
+			highlight_block.get_child(1).visible = true
 		3:
 			structure_selected = 3
 		4:
+			highlight_block.self_modulate = Color(1,1,1,1)
 			structure_selected = 4
 
 # Adjusts player's scrap value, updates display text
@@ -88,28 +121,35 @@ func updateScrapUI(newScrap):
 func buildStructure():
 	var newScrap : int
 	# Create structure 1
-	if checkedSpace is bool:
-		
+	if not spaceTaken:
 		if structure_selected == 1 and player.resource >= turretCost:
 			newScrap = -turretCost
 			var new_t = turret.instantiate()
-			get_tree().current_scene.add_child(new_t)
-			new_t.position = coords
-			endBuild()
+			createStruct(new_t)
 		elif structure_selected == 2 and player.resource >= conveyorCost:
-			player.resource -= conveyorCost
+			newScrap = -conveyorCost
 			var new_c = conveyor.instantiate()
-			get_tree().current_scene.add_child(new_c)
-			new_c.position = coords
-			endBuild()
+			new_c.facing_dir = struct_r
+			createStruct(new_c)
+			
 	# Destruct
 	elif structure_selected == 4:
+		Structures.erase(checkedSpace)
 		checkedSpace.queue_free()
-		newScrap = floor(turretCost) / 3
+		match checkedSpace.value:
+			1:
+				newScrap = floor(turretCost) / 3
+			2:
+				newScrap = floor(conveyorCost) / 2
 		endBuild()
 		
 	updateScrapUI(newScrap)
 	
+func createStruct(struct):
+	Structures.append(struct)
+	get_tree().current_scene.add_child(struct)
+	struct.position = coords
+	endBuild()
 
 func _input(event):
 	# If left mouse button pressed and in range, place structure
@@ -122,6 +162,10 @@ func _input(event):
 		if (Input.is_key_pressed(KEY_SPACE) and not event.is_echo()):
 			structure_selected = 0
 			highlight_block.visible = false
+		if (Input.is_key_pressed(KEY_R) and not event.is_echo()):
+			struct_r += 1
+			if struct_r == 4:
+				struct_r = 0
 		
 		#INDEV FUNCTION, INCREASES SCRAP BY 10
 		if (Input.is_key_pressed(KEY_0) and not event.is_echo()):

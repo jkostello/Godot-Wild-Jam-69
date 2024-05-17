@@ -111,13 +111,14 @@ top_level = true
 texture = ExtResource("2_4xf2m")
 offset = Vector2(0, -72)
 
+[node name="turretSprite" type="Sprite2D" parent="highlightBlock"]
+visible = false
+position = Vector2(0, -120)
+texture = ExtResource("5_k7ex3")
+
 [node name="conveyorSprite" type="Sprite2D" parent="highlightBlock"]
 visible = false
 texture = ExtResource("4_63e0l")
-
-[node name="turretSprite" type="Sprite2D" parent="highlightBlock"]
-visible = false
-texture = ExtResource("5_k7ex3")
 
 [connection signal="pressed" from="VBoxContainer/buttonHolder/HBoxContainer/structureBut1" to="." method="onButtonPressed" binds= [1]]
 [connection signal="pressed" from="VBoxContainer/buttonHolder/HBoxContainer/structureBut2" to="." method="onButtonPressed" binds= [2]]

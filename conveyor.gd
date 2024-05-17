@@ -4,6 +4,8 @@ extends Structure
 
 var touching_bodies := []
 
+func _ready():
+	value = 2
 
 func _physics_process(delta):
 	var push_vec : Vector2
