@@ -63,7 +63,9 @@ func onButtonPressed(butNum):
 		4:
 			structure_selected = 4
 
-func updateScrapUI():
+# Adjusts player's scrap value, updates display text
+func updateScrapUI(newScrap):
+	player.resource += newScrap
 	scrapReadout.set_text(str("[center]\nScrap\n",player.resource,"[/center]"))
 	if player.resource < turretCost:
 		structure_but_1.disabled = true
@@ -75,7 +77,7 @@ func buildStructure():
 	# Create structure 1
 	if checkedSpace is bool:
 		if structure_selected == 1 and player.resource >= turretCost:
-			player.resource -= turretCost
+			updateScrapUI(-(turretCost))
 			var new_t = turret.instantiate()
 			get_tree().current_scene.add_child(new_t)
 			new_t.position = coords
@@ -84,14 +86,10 @@ func buildStructure():
 	# Destruct
 	elif structure_selected == 4:
 		checkedSpace.queue_free()
-		player.resource += floor(turretCost) / 3
+		updateScrapUI(floor(turretCost) / 3)
 		highlight_block.visible = false
 		structure_selected = 0
-		
-	# Deselect structure, hide highlight_block
-	updateScrapUI()
 	
-
 
 func _input(event):
 	# If left mouse button pressed and in range, place structure
@@ -107,6 +105,5 @@ func _input(event):
 		
 		#INDEV FUNCTION, INCREASES SCRAP BY 10
 		if (Input.is_key_pressed(KEY_0) and not event.is_echo()):
-			player.resource += 10
-			updateScrapUI()
+			updateScrapUI(10)
 

@@ -6,6 +6,5 @@ extends Node2D
 # Add resources to player & delete self
 func _on_area_2d_body_entered(body):
 	if (body == player):
-		player.resource += 10
-		structure_handler.updateScrapUI()
+		structure_handler.updateScrapUI(10)
 		queue_free()
