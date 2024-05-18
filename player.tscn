@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkwa8366unv8y"]
+[gd_scene load_steps=5 format=3 uid="uid://bkwa8366unv8y"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_e0146"]
 [ext_resource type="Texture2D" uid="uid://bx5dvtc0m5646" path="res://icon.svg" id="2_j28ih"]
+[ext_resource type="AudioStream" uid="uid://by3xky47l8vt6" path="res://footstep.wav" id="3_p5ef8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rjscj"]
 radius = 71.007
@@ -17,3 +18,13 @@ shape = SubResource("CircleShape2D_rjscj")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_j28ih")
+
+[node name="Steptimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_p5ef8")
+volume_db = -16.109
+
+[connection signal="timeout" from="Steptimer" to="." method="_on_steptimer_timeout"]

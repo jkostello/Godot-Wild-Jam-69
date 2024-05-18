@@ -85,7 +85,8 @@ func endBuild():
 	for child in highlight_block.get_children():
 		child.visible = false
 	structure_selected = 0
-	
+	$AudioStreamPlayer.play()
+
 # Called on structure button press
 # Selects correct structure, shows highlight block
 func onButtonPressed(butNum):
