@@ -47,6 +47,7 @@ func getBlockVector():
 	for b in highlight_block.get_children():
 		b.visible=false
 	if structure_selected != 4:
+		rotConveyor() #rotates the conveyor highlight sprite
 		highlight_block.get_child(structure_selected-1).visible = true
 	if coords.distance_to(player.position) < 500:
 		checkedSpace = checkSpace()
@@ -56,7 +57,7 @@ func getBlockVector():
 			else:
 				highlight_block.modulate = Color(1,0,0,0.3)
 			highlight_block.self_modulate = Color(0,0,0,0)
-			rotConveyor() #rotates the conveyor highlight sprite
+			
 		elif structure_selected == 4 and spaceTaken: #If destructing and tile is occupied, color orange
 			highlight_block.modulate = Color(255,165,0,0.3)
 			highlight_block.self_modulate = Color(0,0,0,0)
@@ -72,6 +73,13 @@ func getBlockVector():
 				child.visible = false
 	else: # If not in range, color red
 		highlight_block.modulate = Color(1,0,0,0.3)
+	match structure_selected:
+		1:
+			if player.resource < turretCost:
+				highlight_block.modulate = Color(1,0,0,0.3)
+		2:
+			if player.resource < conveyorCost:
+				highlight_block.modulate = Color(1,0,0,0.3)
 
 func rotConveyor():
 	match struct_r:
@@ -123,9 +131,10 @@ func updateScrapUI(newScrap):
 	else:
 		%structureBut1.disabled = false
 	if player.resource < conveyorCost:
-			%structureBut2.disabled = true
+		%structureBut2.disabled = true
 	else:
 		%structureBut2.disabled = false
+
 
 # Creates structures
 func buildStructure():
