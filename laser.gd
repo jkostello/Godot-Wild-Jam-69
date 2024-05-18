@@ -17,12 +17,13 @@ func _physics_process(delta):
 	durability -= pow(randf_range(0.0, 2.0), 2.0) / 8 * delta
 	
 	# Remove turret on 0 durability
-	if durability <= 0.0:
-		queue_free()
-		
+	if durability <= 0.0 and visible:
+		$AudioStreamPlayer.play()
+		visible = false
+	
 	# Increase turret durability
 	# TODO: slow down repair
-	if (repairing and (durability < 100 and player.resource >0)):
+	if (repairing and (durability < 100 and player.resource > 0)):
 		structure_handler.updateScrapUI(-1)
 		durability += 1
 
@@ -40,3 +41,7 @@ func _on_area_2d_body_exited(body):
 		repairing = false
 	else:
 		colliding_enemies -= 1
+
+
+func _on_audio_stream_player_finished():
+	queue_free()

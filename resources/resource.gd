@@ -23,4 +23,9 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body):
 	if ((body == player) and (not moving)):
 		structure_handler.updateScrapUI(10)
-		queue_free()
+		$AudioStreamPlayer.play()
+		visible = false
+
+
+func _on_audio_stream_player_finished():
+	queue_free()

@@ -50,20 +50,55 @@ layer_0/tile_data = PackedInt32Array(-196610, 2, 0, -131075, 2, 0, -65539, 2, 0,
 [node name="Void" parent="TileMap" instance=ExtResource("3_gfdxi")]
 
 [node name="Laser" parent="." instance=ExtResource("4_t28y2")]
-position = Vector2(-820, 433)
-rotation = -0.675106
+position = Vector2(-1078, 466)
+
+[node name="Area2D" parent="Laser" index="1"]
+position = Vector2(22, 14)
+rotation = 1.1143
+
+[node name="AnimatedSprite2D" parent="Laser" index="2"]
+frame = 1
 
 [node name="Laser2" parent="." instance=ExtResource("4_t28y2")]
-position = Vector2(-676, -433)
-rotation = 0.580251
+position = Vector2(-1051, -628)
+
+[node name="Area2D" parent="Laser2" index="1"]
+position = Vector2(49, 100)
+rotation = 0.515566
+
+[node name="CollisionShape2D" parent="Laser2/Area2D" index="0"]
+position = Vector2(-20.561, 26.594)
+rotation = -1.61911
+
+[node name="CollisionShape2D" parent="Laser2/Area2D/StaticBody2D" index="0"]
+position = Vector2(-26.0133, 25.0861)
+rotation = -1.63509
+
+[node name="AnimatedSprite2D" parent="Laser2" index="2"]
+frame = 2
+flip_h = true
 
 [node name="Laser3" parent="." instance=ExtResource("4_t28y2")]
-position = Vector2(696, 373)
-rotation = -2.50431
+position = Vector2(1074, 466)
+
+[node name="Area2D" parent="Laser3" index="1"]
+position = Vector2(10, 37)
+rotation = 2.10447
+
+[node name="AnimatedSprite2D" parent="Laser3" index="2"]
+frame = 1
+flip_h = true
 
 [node name="Laser4" parent="." instance=ExtResource("4_t28y2")]
-position = Vector2(681, -424)
-rotation = 2.38678
+position = Vector2(1059, -622)
+
+[node name="AnimatedSprite2D" parent="Laser4" index="2"]
+frame = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.35, 0.35)
+
+[editable path="Laser"]
+[editable path="Laser2"]
+[editable path="Laser3"]
+[editable path="Laser4"]

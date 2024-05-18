@@ -1,29 +1,69 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgj4vp25lv1gd"]
+[gd_scene load_steps=9 format=3 uid="uid://bgj4vp25lv1gd"]
 
 [ext_resource type="Script" path="res://laser.gd" id="1_gukvq"]
-[ext_resource type="Texture2D" uid="uid://bx5dvtc0m5646" path="res://icon.svg" id="2_1qkrw"]
+[ext_resource type="Texture2D" uid="uid://2itn8dr0x1kw" path="res://LASER1.png" id="2_e7556"]
+[ext_resource type="Texture2D" uid="uid://cm5narplwkj73" path="res://LASER2.png" id="3_j1jp5"]
+[ext_resource type="Texture2D" uid="uid://d0u61dmfhmavg" path="res://LASER12.png" id="4_2kyal"]
+[ext_resource type="AudioStream" uid="uid://buy6fgiukihsg" path="res://laser break.wav" id="5_r2q0y"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbyg6"]
-size = Vector2(128, 82)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2eaqh"]
+radius = 63.4942
+height = 326.899
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewvee"]
+radius = 34.8745
+height = 235.427
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_83u5x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e7556")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_j1jp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2kyal")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Laser" type="Node2D" groups=["Laser"]]
 script = ExtResource("1_gukvq")
+durability = 1.0
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 0)
 default_color = Color(0, 0.815686, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 9.53674e-07)
-scale = Vector2(1, 0.640625)
-texture = ExtResource("2_1qkrw")
-
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(7, 57)
+rotation = 1.07272
 collision_layer = 8
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_sbyg6")
+position = Vector2(28.3431, 8.5832)
+rotation = -0.0189697
+shape = SubResource("CapsuleShape2D_2eaqh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Area2D"]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/StaticBody2D"]
+position = Vector2(26.7559, 15.6882)
+rotation = -0.0315904
+shape = SubResource("CapsuleShape2D_ewvee")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_83u5x")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_r2q0y")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
