@@ -1,17 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgj4vp25lv1gd"]
+[gd_scene load_steps=6 format=3 uid="uid://bgj4vp25lv1gd"]
 
 [ext_resource type="Script" path="res://laser.gd" id="1_gukvq"]
 [ext_resource type="Texture2D" uid="uid://bx5dvtc0m5646" path="res://icon.svg" id="2_1qkrw"]
+[ext_resource type="Shader" path="res://laser.gdshader" id="2_4okvl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbyg6"]
 size = Vector2(128, 82)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0e74"]
+resource_local_to_scene = true
+shader = ExtResource("2_4okvl")
+shader_parameter/resolution = Vector2(600, 400)
+shader_parameter/line_primary_color = Color(0.08, 0.85, 0.4, 1)
+shader_parameter/line_secondary_color = Color(0.85, 0.5, 0.25, 1)
+shader_parameter/line_tertiary_color = Color(0.8, 0.1, 0.35, 1)
+shader_parameter/color_gradient_pos = 0.5
+shader_parameter/line_thickness = 0.1
+shader_parameter/color_change_speed = 0.8
+shader_parameter/color_change_amplitude = 0.69
+shader_parameter/wave_speed = 1.5
+shader_parameter/wave_amplitude = 0.2
+shader_parameter/wave_frequency = 3.0
+shader_parameter/wave_offset = 1.8
+shader_parameter/iterations = 4
+
 [node name="Laser" type="Node2D" groups=["Laser"]]
 script = ExtResource("1_gukvq")
-
-[node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(0, 0, 0, 0)
-default_color = Color(0, 0.815686, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 9.53674e-07)
@@ -24,6 +38,12 @@ collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_sbyg6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_v0e74")
+offset_top = -40.0
+offset_right = 640.0
+offset_bottom = 40.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

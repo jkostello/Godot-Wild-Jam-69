@@ -51,19 +51,19 @@ layer_0/tile_data = PackedInt32Array(-196610, 2, 0, -131075, 2, 0, -65539, 2, 0,
 
 [node name="Laser" parent="." instance=ExtResource("4_t28y2")]
 position = Vector2(-820, 433)
-rotation = -0.675106
+rotation = -0.58294
 
 [node name="Laser2" parent="." instance=ExtResource("4_t28y2")]
 position = Vector2(-676, -433)
-rotation = 0.580251
+rotation = 0.579449
 
 [node name="Laser3" parent="." instance=ExtResource("4_t28y2")]
 position = Vector2(696, 373)
-rotation = -2.50431
+rotation = -2.59705
 
 [node name="Laser4" parent="." instance=ExtResource("4_t28y2")]
 position = Vector2(681, -424)
-rotation = 2.38678
+rotation = 2.66337
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.35, 0.35)
