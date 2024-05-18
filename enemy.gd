@@ -1,12 +1,19 @@
 extends CharacterBody2D
 
 @export var speed := 50.0
+@export var health := 3
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 var player : CharacterBody2D
 
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
+	add_to_group("Enemy")
+
+func takeDMG(dmg): #Take damage
+	health -= dmg
+	if health <= 0: #DIE
+		queue_free() 
 
 func _physics_process(delta):
 	var closest_target : Vector2

@@ -6,7 +6,18 @@
 
 [node name="Structure" instance=ExtResource("1_odcfn")]
 script = ExtResource("2_eq845")
+dmg = 1
+range = 700
+cd = 0.5
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -120)
 texture = ExtResource("2_tfr18")
+
+[node name="Timer" type="Timer" parent="Sprite2D" index="0"]
+
+[node name="Line2D" type="Line2D" parent="Sprite2D" index="1"]
+points = PackedVector2Array(0, 0, 0, 0)
+default_color = Color(0, 1, 1, 1)
+
+[connection signal="timeout" from="Sprite2D/Timer" to="." method="_on_timer_timeout"]
