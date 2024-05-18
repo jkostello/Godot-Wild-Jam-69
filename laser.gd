@@ -3,6 +3,7 @@ extends Node2D
 @export var durability := 100.0
 @onready var player = get_node("/root/Level/Player")
 @onready var structure_handler = get_node("/root/Level/CanvasLayer/structure_handler")
+@onready var beam : ColorRect = $ColorRect
 
 var colliding_enemies := 0
 var repairing := false
@@ -22,6 +23,8 @@ func _physics_process(delta):
 	if (repairing and (durability < 100 and player.resource > 0)):
 		structure_handler.updateScrapUI(-1)
 		durability += 1
+	
+	
 
 
 # Enable player repairing or add enemy

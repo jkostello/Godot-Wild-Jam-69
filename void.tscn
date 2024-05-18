@@ -7,7 +7,7 @@
 script = ExtResource("1_bbfwi")
 
 [node name="VoidOrbDev1" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 position = Vector2(0, -250)
 texture = ExtResource("1_v1ugm")
 region_enabled = true
