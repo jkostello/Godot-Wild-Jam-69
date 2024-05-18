@@ -4,7 +4,9 @@ shader_type canvas_item;
 #define IS(x,y,z) (1.0 - smoothstep(x,y,z))
 
 uniform vec2 resolution = vec2(600.0, 400.0);
-uniform vec3 line_color: source_color = vec3(0.58, 0.12, 0.78);
+uniform vec3 line_primary_color: source_color = vec3(0.58, 0.12, 0.78);
+uniform vec3 line_secondary_color: source_color = vec3(0.78,0.12,0.35);
+uniform float distance_from_secondary_color: hint_range(0.0, 1.0, 0.01) = 0.5;
 uniform float line_thickness: hint_range(0.01, 1.0, 0.01) = 0.14;
 uniform float color_change_speed: hint_range(0.1, 2.5, 0.1) = 0.5;
 uniform float color_change_amplitude: hint_range(0.1, 3.0, 0.01) = 0.5;
@@ -39,9 +41,15 @@ float visibility_of_point(vec2 uv, float frequency, float shift, float amplifica
 void fragment() {
 	// Called for every pixel the material is visible on.
 	vec2 uv = UV - 0.5;
-	float color_offset = mod(TIME*color_change_speed, 100.);
-	vec3 color = line_color +
-			vec3(noise(uv+color_offset), noise(uv+color_offset+1.), noise(uv+color_offset+2.))*color_change_amplitude;
+	float color_warp_offset = mod(TIME*color_change_speed, 100.);
+	vec3 color_difference = line_secondary_color - line_primary_color;
+	
+	vec3 color_warp = vec3(	noise(uv+color_warp_offset),
+							noise(uv+color_warp_offset+1.),
+							noise(uv+color_warp_offset+2.)) * color_change_amplitude;
+	
+	vec3 color = line_primary_color + (color_difference * distance_from_secondary_color) + color_warp;
+	
 	float visibility = 0.0;
 	for (int i = 0; i < iterations; i += 1) {
 		visibility += visibility_of_point(uv, wave_frequency, float(i) * 3.0 / float(iterations), wave_amplitude);

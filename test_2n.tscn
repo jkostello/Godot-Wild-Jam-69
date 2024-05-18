@@ -12,7 +12,9 @@ navigation_layer_0/layers = 1
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pcs32"]
 shader = ExtResource("3_i0eca")
 shader_parameter/resolution = Vector2(600, 400)
-shader_parameter/line_color = Color(0.58, 0.12, 0.78, 1)
+shader_parameter/line_primary_color = Color(0.58, 0.12, 0.78, 1)
+shader_parameter/line_secondary_color = Color(0.78, 0.12, 0.35, 1)
+shader_parameter/distance_from_secondary_color = 0.5
 shader_parameter/line_thickness = 0.14
 shader_parameter/color_change_speed = 0.5
 shader_parameter/color_change_amplitude = 0.5
@@ -41,7 +43,9 @@ zoom = Vector2(0.425, 0.425)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_pcs32")
-offset_left = -1460.0
-offset_top = -577.0
-offset_right = 354.0
-offset_bottom = -448.0
+offset_left = -1333.0
+offset_top = -486.0
+offset_right = 792.0
+offset_bottom = -293.0
+
+[node name="Line2D" type="Line2D" parent="."]
