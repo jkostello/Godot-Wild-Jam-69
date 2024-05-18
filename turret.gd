@@ -25,7 +25,6 @@ func _process(delta):
 	getNearestEnemy()
 	laserAlpha -= 0.1
 	laser.modulate = Color(0,1,1,laserAlpha)
-	print(closeEnough)
 	if primed and closeEnough:
 		shoot()
 
@@ -36,12 +35,13 @@ func getNearestEnemy():
 	for e in get_tree().get_nodes_in_group("Enemy"):
 		if e.global_position.distance_to(global_position) < nearestEnemy.global_position.distance_to(global_position):
 			nearestEnemy = e
-	if nearestEnemy.global_position.distance_to(global_position) <= range:
-		closeEnough = true
+		if get_tree().get_nodes_in_group("Enemy").is_empty() == false and nearestEnemy.global_position.distance_to(global_position) <= range:
+			closeEnough = true
 
 func shoot():
 	laserAlpha = 1
 	nearestEnemy.takeDMG(dmg)
+	$laserSound.play()
 	laser.points[1] = to_local(nearestEnemy.global_position)
 	primed = false
 	coolDown()
@@ -50,4 +50,3 @@ func shoot():
 
 func _on_timer_timeout():
 	primed = true
-	print("primed!")

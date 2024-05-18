@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo3mswpai0sp6"]
+[gd_scene load_steps=5 format=3 uid="uid://bo3mswpai0sp6"]
 
 [ext_resource type="PackedScene" uid="uid://b1kv3djwawgx" path="res://structure.tscn" id="1_odcfn"]
 [ext_resource type="Script" path="res://turret.gd" id="2_eq845"]
 [ext_resource type="Texture2D" uid="uid://cvnbxf5ey3028" path="res://turret dev.png" id="2_tfr18"]
+[ext_resource type="AudioStream" uid="uid://b4n0dwy12e5wp" path="res://lasershot.wav" id="4_r2rlb"]
 
 [node name="Structure" instance=ExtResource("1_odcfn")]
 script = ExtResource("2_eq845")
@@ -19,5 +20,9 @@ texture = ExtResource("2_tfr18")
 [node name="Line2D" type="Line2D" parent="Sprite2D" index="1"]
 points = PackedVector2Array(0, 0, 0, 0)
 default_color = Color(0, 1, 1, 1)
+
+[node name="laserSound" type="AudioStreamPlayer2D" parent="." index="1"]
+stream = ExtResource("4_r2rlb")
+volume_db = -10.0
 
 [connection signal="timeout" from="Sprite2D/Timer" to="." method="_on_timer_timeout"]
