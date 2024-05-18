@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckmh6gnitv64p"]
+[gd_scene load_steps=10 format=3 uid="uid://ckmh6gnitv64p"]
 
 [ext_resource type="PackedScene" uid="uid://bpg2lcg0737in" path="res://structure_handler.tscn" id="1_7h3wo"]
 [ext_resource type="Script" path="res://level.gd" id="1_fnxtp"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://xn4epdl40krm" path="res://void.tscn" id="3_gfdxi"]
 [ext_resource type="PackedScene" uid="uid://bgj4vp25lv1gd" path="res://laser.tscn" id="4_t28y2"]
 [ext_resource type="PackedScene" uid="uid://bkwa8366unv8y" path="res://player.tscn" id="5_w3uvl"]
-[ext_resource type="PackedScene" uid="uid://dpmmqadkrpebq" path="res://conveyor.tscn" id="7_hu7mx"]
-[ext_resource type="PackedScene" uid="uid://c7waafyi0ya1x" path="res://resources/resource.tscn" id="8_d4m44"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j53cu"]
 vertices = PackedVector2Array(150, 0, 0, 75, -150, 0, 0, -75)
@@ -69,10 +67,3 @@ rotation = 2.38678
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.35, 0.35)
-
-[node name="Conveyor" parent="." instance=ExtResource("7_hu7mx")]
-position = Vector2(-143, 523)
-strength = null
-
-[node name="resource" parent="." instance=ExtResource("8_d4m44")]
-position = Vector2(-542, 652)
