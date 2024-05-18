@@ -1,12 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgj4vp25lv1gd"]
+[gd_scene load_steps=11 format=3 uid="uid://bgj4vp25lv1gd"]
 
 [ext_resource type="Script" path="res://laser.gd" id="1_gukvq"]
+[ext_resource type="Shader" path="res://laser.gdshader" id="2_4okvl"]
 [ext_resource type="Texture2D" uid="uid://2itn8dr0x1kw" path="res://LASER1.png" id="2_e7556"]
 [ext_resource type="Texture2D" uid="uid://cm5narplwkj73" path="res://LASER2.png" id="3_j1jp5"]
 [ext_resource type="Texture2D" uid="uid://d0u61dmfhmavg" path="res://LASER12.png" id="4_2kyal"]
 [ext_resource type="AudioStream" uid="uid://buy6fgiukihsg" path="res://laser break.wav" id="5_r2q0y"]
-[ext_resource type="Shader" path="res://laser.gdshader" id="2_4okvl"]
-
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2eaqh"]
 radius = 63.4942

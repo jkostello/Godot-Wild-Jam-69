@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckmh6gnitv64p"]
+[gd_scene load_steps=15 format=3 uid="uid://ckmh6gnitv64p"]
 
 [ext_resource type="PackedScene" uid="uid://bpg2lcg0737in" path="res://structure_handler.tscn" id="1_7h3wo"]
 [ext_resource type="Script" path="res://level.gd" id="1_fnxtp"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xn4epdl40krm" path="res://void.tscn" id="3_gfdxi"]
 [ext_resource type="PackedScene" uid="uid://bgj4vp25lv1gd" path="res://laser.tscn" id="4_t28y2"]
 [ext_resource type="PackedScene" uid="uid://bkwa8366unv8y" path="res://player.tscn" id="5_w3uvl"]
+[ext_resource type="Shader" path="res://laser.gdshader" id="7_pw2ry"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j53cu"]
 vertices = PackedVector2Array(150, 0, 0, 75, -150, 0, 0, -75)
@@ -26,6 +27,74 @@ tile_shape = 1
 tile_size = Vector2i(300, 150)
 navigation_layer_0/layers = 1
 sources/2 = SubResource("TileSetAtlasSource_1fq3d")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x7en5"]
+resource_local_to_scene = true
+shader = ExtResource("7_pw2ry")
+shader_parameter/resolution = Vector2(600, 400)
+shader_parameter/line_primary_color = Color(0.08, 0.85, 0.4, 1)
+shader_parameter/line_secondary_color = Color(0.85, 0.5, 0.25, 1)
+shader_parameter/line_tertiary_color = Color(0.8, 0.1, 0.35, 1)
+shader_parameter/color_gradient_pos = 0.5
+shader_parameter/line_thickness = 0.1
+shader_parameter/color_change_speed = 0.8
+shader_parameter/color_change_amplitude = 0.69
+shader_parameter/wave_speed = 1.5
+shader_parameter/wave_amplitude = 0.2
+shader_parameter/wave_frequency = 3.0
+shader_parameter/wave_offset = 1.8
+shader_parameter/iterations = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5e1ya"]
+resource_local_to_scene = true
+shader = ExtResource("7_pw2ry")
+shader_parameter/resolution = Vector2(600, 400)
+shader_parameter/line_primary_color = Color(0.08, 0.85, 0.4, 1)
+shader_parameter/line_secondary_color = Color(0.85, 0.5, 0.25, 1)
+shader_parameter/line_tertiary_color = Color(0.8, 0.1, 0.35, 1)
+shader_parameter/color_gradient_pos = 0.5
+shader_parameter/line_thickness = 0.1
+shader_parameter/color_change_speed = 0.8
+shader_parameter/color_change_amplitude = 0.69
+shader_parameter/wave_speed = 1.5
+shader_parameter/wave_amplitude = 0.2
+shader_parameter/wave_frequency = 3.0
+shader_parameter/wave_offset = 1.8
+shader_parameter/iterations = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_70n5v"]
+resource_local_to_scene = true
+shader = ExtResource("7_pw2ry")
+shader_parameter/resolution = Vector2(600, 400)
+shader_parameter/line_primary_color = Color(0.08, 0.85, 0.4, 1)
+shader_parameter/line_secondary_color = Color(0.85, 0.5, 0.25, 1)
+shader_parameter/line_tertiary_color = Color(0.8, 0.1, 0.35, 1)
+shader_parameter/color_gradient_pos = 0.5
+shader_parameter/line_thickness = 0.1
+shader_parameter/color_change_speed = 0.8
+shader_parameter/color_change_amplitude = 0.69
+shader_parameter/wave_speed = 1.5
+shader_parameter/wave_amplitude = 0.2
+shader_parameter/wave_frequency = 3.0
+shader_parameter/wave_offset = 1.8
+shader_parameter/iterations = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_04hgy"]
+resource_local_to_scene = true
+shader = ExtResource("7_pw2ry")
+shader_parameter/resolution = Vector2(600, 400)
+shader_parameter/line_primary_color = Color(0.08, 0.85, 0.4, 1)
+shader_parameter/line_secondary_color = Color(0.85, 0.5, 0.25, 1)
+shader_parameter/line_tertiary_color = Color(0.8, 0.1, 0.35, 1)
+shader_parameter/color_gradient_pos = 0.5
+shader_parameter/line_thickness = 0.1
+shader_parameter/color_change_speed = 0.8
+shader_parameter/color_change_amplitude = 0.69
+shader_parameter/wave_speed = 1.5
+shader_parameter/wave_amplitude = 0.2
+shader_parameter/wave_frequency = 3.0
+shader_parameter/wave_offset = 1.8
+shader_parameter/iterations = 4
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_fnxtp")
@@ -52,17 +121,20 @@ layer_0/tile_data = PackedInt32Array(-196610, 2, 0, -131075, 2, 0, -65539, 2, 0,
 [node name="Laser" parent="." instance=ExtResource("4_t28y2")]
 position = Vector2(-1078, 466)
 
-[node name="Area2D" parent="Laser" index="1"]
+[node name="Area2D" parent="Laser" index="0"]
 position = Vector2(22, 14)
 rotation = 1.1143
 
-[node name="AnimatedSprite2D" parent="Laser" index="2"]
+[node name="AnimatedSprite2D" parent="Laser" index="1"]
 frame = 1
+
+[node name="ColorRect" parent="Laser" index="3"]
+material = SubResource("ShaderMaterial_x7en5")
 
 [node name="Laser2" parent="." instance=ExtResource("4_t28y2")]
 position = Vector2(-1051, -628)
 
-[node name="Area2D" parent="Laser2" index="1"]
+[node name="Area2D" parent="Laser2" index="0"]
 position = Vector2(49, 100)
 rotation = 0.515566
 
@@ -74,26 +146,35 @@ rotation = -1.61911
 position = Vector2(-26.0133, 25.0861)
 rotation = -1.63509
 
-[node name="AnimatedSprite2D" parent="Laser2" index="2"]
+[node name="AnimatedSprite2D" parent="Laser2" index="1"]
 frame = 2
 flip_h = true
+
+[node name="ColorRect" parent="Laser2" index="3"]
+material = SubResource("ShaderMaterial_5e1ya")
 
 [node name="Laser3" parent="." instance=ExtResource("4_t28y2")]
 position = Vector2(1074, 466)
 
-[node name="Area2D" parent="Laser3" index="1"]
+[node name="Area2D" parent="Laser3" index="0"]
 position = Vector2(10, 37)
 rotation = 2.10447
 
-[node name="AnimatedSprite2D" parent="Laser3" index="2"]
+[node name="AnimatedSprite2D" parent="Laser3" index="1"]
 frame = 1
 flip_h = true
+
+[node name="ColorRect" parent="Laser3" index="3"]
+material = SubResource("ShaderMaterial_70n5v")
 
 [node name="Laser4" parent="." instance=ExtResource("4_t28y2")]
 position = Vector2(1059, -622)
 
-[node name="AnimatedSprite2D" parent="Laser4" index="2"]
+[node name="AnimatedSprite2D" parent="Laser4" index="1"]
 frame = 2
+
+[node name="ColorRect" parent="Laser4" index="3"]
+material = SubResource("ShaderMaterial_04hgy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.35, 0.35)
