@@ -15,23 +15,6 @@ height = 326.899
 radius = 34.8745
 height = 235.427
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_83u5x"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_e7556")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_j1jp5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_2kyal")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v0e74"]
 resource_local_to_scene = true
 shader = ExtResource("2_4okvl")
@@ -49,9 +32,25 @@ shader_parameter/wave_frequency = 3.0
 shader_parameter/wave_offset = 1.8
 shader_parameter/iterations = 4
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_83u5x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e7556")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_j1jp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2kyal")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Laser" type="Node2D" groups=["Laser"]]
 script = ExtResource("1_gukvq")
-durability = 1.0
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(7, 57)
@@ -72,17 +71,17 @@ position = Vector2(26.7559, 15.6882)
 rotation = -0.0315904
 shape = SubResource("CapsuleShape2D_ewvee")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_v0e74")
+offset_top = -40.0
+offset_right = 808.0
+offset_bottom = 40.0
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_83u5x")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_r2q0y")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_v0e74")
-offset_top = -40.0
-offset_right = 640.0
-offset_bottom = 40.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
