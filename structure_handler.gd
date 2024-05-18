@@ -43,17 +43,12 @@ func getBlockVector():
 	# Get tile map position of mouse
 	clicked_cell = tile_map.local_to_map(tile_map.get_local_mouse_position())
 	coords = tile_map.to_global(tile_map.map_to_local(clicked_cell))
-	for b in highlight_block.get_children():
-		b.visible = false
-	highlight_block.get_child(structure_selected-1).visible = true
+	
 	if coords.distance_to(player.position) < 500:
 		checkedSpace = checkSpace()
-		if structure_selected != 4: # If in range and valid space, color green
-			if not spaceTaken:
-				highlight_block.modulate = Color(0,1,0,0.3)
-				rotConveyor() #rotates the conveyor highlight sprite
-			else:
-				highlight_block.modulate = Color(1,0,0,0.3)
+		if structure_selected != 4 and not spaceTaken: # If in range and valid space, color green
+			highlight_block.modulate = Color(0,1,0,0.3)
+			rotConveyor() #rotates the conveyor highlight sprite
 		elif structure_selected == 4 and spaceTaken: #If destructing and tile is occupied, color orange
 			highlight_block.modulate = Color(255,165,0,0.3)
 			highlight_block.self_modulate = Color(0,0,0,0)
