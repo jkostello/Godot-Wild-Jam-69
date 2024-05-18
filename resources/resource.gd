@@ -12,6 +12,9 @@ func _ready():
 func _physics_process(delta):
 	if moving:
 		self.global_position = self.global_position.move_toward(destination_position, 10)
+		$Area2D/CollisionShape2D.disabled = true
+	else:
+		$Area2D/CollisionShape2D.disabled = false
 	if self.global_position == destination_position:
 		moving = false
 
