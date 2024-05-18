@@ -23,6 +23,10 @@ func _physics_process(delta):
 	modulate = Color(1,1,1,1.0 - $FadeTimer.time_left / 4.0)
 	if tangible:
 		set_collision_mask_value(1, true)
+	if attacking:
+		get_node("Line2D").points[0] = to_local(nav_agent.target_position)
+	else:
+		get_node("Line2D").points[0] = Vector2.ZERO
 	
 	
 	var closest_target : Vector2
