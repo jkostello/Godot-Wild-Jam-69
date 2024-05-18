@@ -26,5 +26,11 @@ texture = ExtResource("2_aoe0f")
 stream = ExtResource("3_pg63l")
 max_polyphony = 5
 
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_xyhcs")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

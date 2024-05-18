@@ -19,3 +19,10 @@ func _physics_process(delta):
 		var new_scrap = scrap.instantiate()
 		new_scrap.global_position = Vector2(randi_range(-1500, 1500), -1200)
 		get_tree().current_scene.add_child(new_scrap)
+
+
+func _on_area_2d_area_exited(area):
+	area.get_parent().tangible = true
+	area.get_parent().add_to_group("Enemy")
+	
+

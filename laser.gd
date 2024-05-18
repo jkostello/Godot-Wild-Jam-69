@@ -17,6 +17,7 @@ func _physics_process(delta):
 	if durability <= 0.0 and visible:
 		$AudioStreamPlayer.play()
 		visible = false
+		$Area2D/CollisionShape2D.disabled = true
 	
 	# Increase turret durability
 	# TODO: slow down repair
@@ -24,6 +25,7 @@ func _physics_process(delta):
 		structure_handler.updateScrapUI(-1)
 		durability += 1
 	
+	$ColorRect.material.set_shader_parameter("color_gradient_pos", 1.0 - durability / 100.0);
 	
 
 
@@ -33,6 +35,8 @@ func _on_area_2d_body_entered(body):
 		repairing = true
 	else:
 		colliding_enemies += 1
+		body.attacking = true
+		body.get_node("Attack").play()
 
 # Disable player repairing or remove enemy
 func _on_area_2d_body_exited(body):
@@ -40,6 +44,7 @@ func _on_area_2d_body_exited(body):
 		repairing = false
 	else:
 		colliding_enemies -= 1
+		body.attacking = false
 
 
 func _on_audio_stream_player_finished():
