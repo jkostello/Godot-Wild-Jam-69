@@ -7,10 +7,6 @@ extends Node2D
 var colliding_enemies := 0
 var repairing := false
 
-# Point lasers to middle
-func _ready():
-	$Line2D.points[0] = to_local(Vector2.ZERO)
-
 # Decrease durability when enemies in range
 func _physics_process(delta):
 	durability -= colliding_enemies * delta
