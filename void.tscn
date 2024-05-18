@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://xn4epdl40krm"]
+[gd_scene load_steps=11 format=3 uid="uid://xn4epdl40krm"]
 
 [ext_resource type="Script" path="res://void.gd" id="1_bbfwi"]
-[ext_resource type="Texture2D" uid="uid://cpnrwp8ugkudo" path="res://void orb dev1.png" id="1_v1ugm"]
 [ext_resource type="Texture2D" uid="uid://cthvw03uoutxj" path="res://Void/void orb 1.png" id="3_ufuvv"]
 [ext_resource type="Texture2D" uid="uid://dt1qkpeheye28" path="res://Void/void orb 2.png" id="4_j1k0d"]
 [ext_resource type="Texture2D" uid="uid://bwhtd02ct4ybn" path="res://Void/void orb 3.png" id="5_0udyv"]
@@ -45,24 +44,6 @@ animations = [{
 
 [node name="Void" type="Node2D"]
 script = ExtResource("1_bbfwi")
-
-[node name="VoidOrbDev1" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.886275)
-z_index = 2
-position = Vector2(0, -250)
-texture = ExtResource("1_v1ugm")
-region_enabled = true
-region_rect = Rect2(0, 0, 1000, 500)
-
-[node name="VoidOrbDev2" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.886275)
-z_index = -1
-position = Vector2(0, 250)
-texture = ExtResource("1_v1ugm")
-region_enabled = true
-region_rect = Rect2(0, 500, 1000, 500)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 4
