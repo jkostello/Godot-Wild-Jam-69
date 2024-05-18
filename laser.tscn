@@ -15,23 +15,6 @@ height = 326.899
 radius = 34.8745
 height = 235.427
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0e74"]
-resource_local_to_scene = true
-shader = ExtResource("2_4okvl")
-shader_parameter/resolution = Vector2(600, 400)
-shader_parameter/line_primary_color = Color(0, 1, 0, 1)
-shader_parameter/line_secondary_color = Color(1, 0.470588, 0, 1)
-shader_parameter/line_tertiary_color = Color(1, 0, 0, 1)
-shader_parameter/color_gradient_pos = 0.0
-shader_parameter/line_thickness = 0.1
-shader_parameter/color_change_speed = 0.8
-shader_parameter/color_change_amplitude = 0.69
-shader_parameter/wave_speed = 1.5
-shader_parameter/wave_amplitude = 0.2
-shader_parameter/wave_frequency = 3.0
-shader_parameter/wave_offset = 1.8
-shader_parameter/iterations = 4
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_83u5x"]
 animations = [{
 "frames": [{
@@ -48,6 +31,23 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0e74"]
+resource_local_to_scene = true
+shader = ExtResource("2_4okvl")
+shader_parameter/resolution = Vector2(600, 400)
+shader_parameter/line_primary_color = Color(0, 1, 0, 1)
+shader_parameter/line_secondary_color = Color(1, 0.470588, 0, 1)
+shader_parameter/line_tertiary_color = Color(1, 0, 0, 1)
+shader_parameter/color_gradient_pos = 0.0
+shader_parameter/line_thickness = 0.1
+shader_parameter/color_change_speed = 0.8
+shader_parameter/color_change_amplitude = 0.69
+shader_parameter/wave_speed = 1.5
+shader_parameter/wave_amplitude = 0.2
+shader_parameter/wave_frequency = 3.0
+shader_parameter/wave_offset = 1.8
+shader_parameter/iterations = 4
 
 [node name="Laser" type="Node2D" groups=["Laser"]]
 script = ExtResource("1_gukvq")
@@ -71,14 +71,16 @@ position = Vector2(26.7559, 15.6882)
 rotation = -0.0315904
 shape = SubResource("CapsuleShape2D_ewvee")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.90735e-06, -3.8147e-06)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_83u5x")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_v0e74")
 offset_top = -40.0
 offset_right = 808.0
 offset_bottom = 40.0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_83u5x")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_r2q0y")

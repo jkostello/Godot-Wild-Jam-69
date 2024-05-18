@@ -1,12 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://xn4epdl40krm"]
+[gd_scene load_steps=12 format=3 uid="uid://xn4epdl40krm"]
 
 [ext_resource type="Script" path="res://void.gd" id="1_bbfwi"]
 [ext_resource type="Texture2D" uid="uid://cpnrwp8ugkudo" path="res://void orb dev1.png" id="1_v1ugm"]
+[ext_resource type="Texture2D" uid="uid://cthvw03uoutxj" path="res://Void/void orb 1.png" id="3_ufuvv"]
+[ext_resource type="Texture2D" uid="uid://dt1qkpeheye28" path="res://Void/void orb 2.png" id="4_j1k0d"]
+[ext_resource type="Texture2D" uid="uid://bwhtd02ct4ybn" path="res://Void/void orb 3.png" id="5_0udyv"]
+[ext_resource type="Texture2D" uid="uid://dndepk7a0dd0a" path="res://Void/void orb 4.png" id="6_f4hs0"]
+[ext_resource type="Texture2D" uid="uid://d0io5yabe0r7q" path="res://Void/void orb 5.png" id="7_j4k1l"]
+[ext_resource type="Texture2D" uid="uid://b16yyl28ho4ks" path="res://Void/void orb 6.png" id="8_em4qj"]
+[ext_resource type="Texture2D" uid="uid://chm38cydluq6n" path="res://Void/void orb 7.png" id="9_0lbl6"]
+[ext_resource type="Texture2D" uid="uid://d0imm45xjvm15" path="res://Void/void orb 8.png" id="10_ckjnd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7i20j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ufuvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j1k0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0udyv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_f4hs0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j4k1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_em4qj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0lbl6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ckjnd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Void" type="Node2D"]
 script = ExtResource("1_bbfwi")
 
 [node name="VoidOrbDev1" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.886275)
 z_index = 2
 position = Vector2(0, -250)
@@ -15,6 +56,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 1000, 500)
 
 [node name="VoidOrbDev2" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.886275)
 z_index = -1
 position = Vector2(0, 250)
@@ -22,7 +64,34 @@ texture = ExtResource("1_v1ugm")
 region_enabled = true
 region_rect = Rect2(0, 500, 1000, 500)
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 4
+clip_contents = true
+offset_left = -628.0
+offset_top = -475.0
+offset_right = 651.0
+color = Color(1, 1, 1, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect"]
+modulate = Color(1, 1, 1, 0.886275)
+position = Vector2(628, 475)
+sprite_frames = SubResource("SpriteFrames_7i20j")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = -1
+clip_contents = true
+offset_left = -628.0
+offset_right = 651.0
+offset_bottom = 475.0
+color = Color(1, 1, 1, 0)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ColorRect2"]
+modulate = Color(1, 1, 1, 0.886275)
+position = Vector2(628, 0)
+sprite_frames = SubResource("SpriteFrames_7i20j")
+
 [node name="Centerblock" type="StaticBody2D" parent="."]
+visible = false
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Centerblock"]
@@ -35,4 +104,9 @@ collision_mask = 4
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(-595, 72, -151, 297, -1, 221, 148, 298, 596, 74, 447, -2, 594, -76, 149, -298, -1, -223, -152, -298, -597, -77, -453, -2)
 
+[node name="Frametimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="Frametimer" to="." method="_on_frametimer_timeout"]
