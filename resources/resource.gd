@@ -7,7 +7,9 @@ var destination_position = Vector2.ZERO
 
 func _ready():
 	destination_position = Vector2(self.global_position.x + randi_range(-100, 100), randi_range(-650, 650))
-
+	$CharacterBody2D.global_position = destination_position
+	if $CharacterBody2D.move_and_slide():
+		queue_free()
 
 func _physics_process(delta):
 	if moving:
