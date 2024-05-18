@@ -127,7 +127,6 @@ position = Vector2(-1078, 466)
 position = Vector2(22, 14)
 rotation = 1.1143
 
-
 [node name="ColorRect" parent="Laser" index="1"]
 material = SubResource("ShaderMaterial_bpbao")
 offset_left = 75.0
@@ -137,11 +136,7 @@ offset_bottom = -22.0
 rotation = -0.483485
 
 [node name="AnimatedSprite2D" parent="Laser" index="2"]
-
 frame = 1
-
-[node name="ColorRect" parent="Laser" index="3"]
-material = SubResource("ShaderMaterial_x7en5")
 
 [node name="Laser2" parent="." instance=ExtResource("4_t28y2")]
 y_sort_enabled = true
@@ -159,7 +154,6 @@ rotation = -1.61911
 position = Vector2(-26.0133, 25.0861)
 rotation = -1.63509
 
-
 [node name="ColorRect" parent="Laser2" index="1"]
 z_index = 1
 material = SubResource("ShaderMaterial_puidh")
@@ -172,9 +166,6 @@ rotation = 0.473645
 [node name="AnimatedSprite2D" parent="Laser2" index="2"]
 frame = 2
 flip_h = true
-
-[node name="ColorRect" parent="Laser2" index="3"]
-material = SubResource("ShaderMaterial_5e1ya")
 
 [node name="Laser3" parent="." instance=ExtResource("4_t28y2")]
 position = Vector2(1074, 466)
@@ -195,9 +186,6 @@ rotation = 0.466055
 frame = 1
 flip_h = true
 
-[node name="ColorRect" parent="Laser3" index="3"]
-material = SubResource("ShaderMaterial_70n5v")
-
 [node name="Laser4" parent="." instance=ExtResource("4_t28y2")]
 position = Vector2(1059, -622)
 
@@ -212,9 +200,6 @@ rotation = -0.4659
 
 [node name="AnimatedSprite2D" parent="Laser4" index="2"]
 frame = 2
-
-[node name="ColorRect" parent="Laser4" index="3"]
-material = SubResource("ShaderMaterial_04hgy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.35, 0.35)

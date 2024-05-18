@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://structure_handler.gd" id="1_sjf38"]
 [ext_resource type="Texture2D" uid="uid://y1qtlj332y4q" path="res://green_highlight.png" id="2_4xf2m"]
 [ext_resource type="Theme" uid="uid://ca4ojcmrepr24" path="res://UI/standard_theme.tres" id="2_74kgc"]
+[ext_resource type="Texture2D" uid="uid://bovyjmr7u858l" path="res://veyror.png" id="4_63e0l"]
 [ext_resource type="Texture2D" uid="uid://cvnbxf5ey3028" path="res://turret dev.png" id="5_k7ex3"]
-[ext_resource type="Texture2D" uid="uid://dr1vjo8ouk3jk" path="res://CONVEYER.png" id="5_wk8wc"]
 [ext_resource type="AudioStream" uid="uid://d0xsgl77b48ty" path="res://build.wav" id="6_6ihdj"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_d7qj1"]
@@ -129,7 +129,7 @@ texture = ExtResource("5_k7ex3")
 
 [node name="conveyorSprite" type="Sprite2D" parent="highlightBlock"]
 visible = false
-texture = ExtResource("5_wk8wc")
+texture = ExtResource("4_63e0l")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_6ihdj")
