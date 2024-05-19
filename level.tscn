@@ -316,7 +316,6 @@ layer_0/tile_data = PackedInt32Array(-196610, 2, 0, -131075, 2, 0, -65539, 2, 0,
 [node name="Void" parent="TileMap" instance=ExtResource("3_gfdxi")]
 
 [node name="Laser" parent="." instance=ExtResource("4_t28y2")]
-y_sort_enabled = true
 position = Vector2(-1078, 466)
 
 [node name="Area2D" parent="Laser" index="0"]
@@ -335,7 +334,6 @@ offset_bottom = -22.0
 rotation = -0.483485
 
 [node name="Laser2" parent="." instance=ExtResource("4_t28y2")]
-y_sort_enabled = true
 position = Vector2(-1051, -628)
 
 [node name="Area2D" parent="Laser2" index="0"]
