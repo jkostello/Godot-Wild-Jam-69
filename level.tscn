@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ckmh6gnitv64p"]
+[gd_scene load_steps=19 format=3 uid="uid://ckmh6gnitv64p"]
 
 [ext_resource type="PackedScene" uid="uid://bpg2lcg0737in" path="res://structure_handler.tscn" id="1_7h3wo"]
 [ext_resource type="Script" path="res://level.gd" id="1_fnxtp"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bkwa8366unv8y" path="res://player.tscn" id="5_w3uvl"]
 [ext_resource type="Shader" path="res://laser.gdshader" id="7_fv8rl"]
 [ext_resource type="AudioStream" uid="uid://7us4g0ytk3co" path="res://consume.wav" id="8_glsn0"]
-[ext_resource type="PackedScene" uid="uid://uqyqil2wo7pp" path="res://magnet.tscn" id="9_5stre"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j53cu"]
 vertices = PackedVector2Array(150, 0, 0, 75, -150, 0, 0, -75)
@@ -371,9 +370,6 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_glsn0")
-
-[node name="Magnet" parent="." instance=ExtResource("9_5stre")]
-position = Vector2(153, 519)
 
 [editable path="TileMap/Void"]
 [editable path="Laser"]
