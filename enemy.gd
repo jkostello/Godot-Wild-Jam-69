@@ -32,6 +32,10 @@ func takeDMG(dmg): #Take damage
 
 func _physics_process(delta):
 	modulate = Color(1,1,1,1.0 - $FadeTimer.time_left / 4.0)
+	if nav_agent.target_position.x > position.x:
+		$Icon.flip_h = true
+	else:
+		$Icon.flip_h = false
 	if tangible:
 		set_collision_mask_value(1, true)
 	if attacking:

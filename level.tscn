@@ -277,6 +277,7 @@ size = Vector2(2750, 20)
 size = Vector2(15, 1544)
 
 [node name="Level" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_fnxtp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

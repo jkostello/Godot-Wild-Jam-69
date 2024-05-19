@@ -210,8 +210,6 @@ func createStruct(struct):
 	Structures.append(struct)
 	get_tree().current_scene.add_child(struct)
 	struct.position = coords
-	for s in Structures:
-		z_index = s.position.y+900
 	endBuild()
 
 func _input(event):
