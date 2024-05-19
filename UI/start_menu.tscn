@@ -135,7 +135,7 @@ libraries = {
 "": SubResource("AnimationLibrary_da22c")
 }
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(954, 175)
 scale = Vector2(0.792208, 0.792208)
 texture = ExtResource("6_2pgai")
