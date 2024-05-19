@@ -77,10 +77,12 @@ stream = ExtResource("5_n0tlp")
 bus = &"SFX"
 
 [node name="Theme" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1610.26, 885.5)
 texture = ExtResource("6_kt4ji")
 
 [node name="PqyU3o" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1677.4, 999.5)
 scale = Vector2(0.161039, 0.161039)
 texture = ExtResource("7_nngan")
