@@ -22,8 +22,10 @@ func _ready():
 func takeDMG(dmg): #Take damage
 	health -= dmg
 	if health <= 0 and not $Die.playing: #DIE
+		$Area2D/CollisionShape2D.disabled = true
 		remove_from_group("Enemy")
 		visible = false # Replace with death animation
+		attacking=false
 		$Die.play()
 		
 
