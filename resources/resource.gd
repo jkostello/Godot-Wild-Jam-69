@@ -7,11 +7,16 @@ var destination_position = Vector2.ZERO
 
 func _ready():
 	destination_position = Vector2(self.global_position.x + randi_range(-100, 100), randi_range(-650, 650))
-
+	$CharacterBody2D.global_position = destination_position
+	if $CharacterBody2D.move_and_slide():
+		queue_free()
 
 func _physics_process(delta):
 	if moving:
 		self.global_position = self.global_position.move_toward(destination_position, 10)
+		$Area2D/CollisionShape2D.disabled = true
+	else:
+		$Area2D/CollisionShape2D.disabled = false
 	if self.global_position == destination_position:
 		moving = false
 
@@ -20,4 +25,9 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body):
 	if ((body == player) and (not moving)):
 		structure_handler.updateScrapUI(10)
-		queue_free()
+		$AudioStreamPlayer.play()
+		visible = false
+
+
+func _on_audio_stream_player_finished():
+	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckmh6gnitv64p"]
+[gd_scene load_steps=19 format=3 uid="uid://ckmh6gnitv64p"]
 
 [ext_resource type="PackedScene" uid="uid://bpg2lcg0737in" path="res://structure_handler.tscn" id="1_7h3wo"]
 [ext_resource type="Script" path="res://level.gd" id="1_fnxtp"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://xn4epdl40krm" path="res://void.tscn" id="3_gfdxi"]
 [ext_resource type="PackedScene" uid="uid://bgj4vp25lv1gd" path="res://laser.tscn" id="4_t28y2"]
 [ext_resource type="PackedScene" uid="uid://bkwa8366unv8y" path="res://player.tscn" id="5_w3uvl"]
+[ext_resource type="Shader" path="res://laser.gdshader" id="7_fv8rl"]
+[ext_resource type="AudioStream" uid="uid://7us4g0ytk3co" path="res://consume.wav" id="8_glsn0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j53cu"]
 vertices = PackedVector2Array(150, 0, 0, 75, -150, 0, 0, -75)
@@ -16,9 +18,10 @@ agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1fq3d"]
 texture = ExtResource("3_c7bgw")
-texture_region_size = Vector2i(300, 225)
+margins = Vector2i(0, 72)
+texture_region_size = Vector2i(300, 212)
 0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, -37)
+0:0/0/texture_origin = Vector2i(0, -29)
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_j53cu")
 
 [sub_resource type="TileSet" id="TileSet_ajha4"]
@@ -26,6 +29,230 @@ tile_shape = 1
 tile_size = Vector2i(300, 150)
 navigation_layer_0/layers = 1
 sources/2 = SubResource("TileSetAtlasSource_1fq3d")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bpbao"]
+resource_local_to_scene = true
+shader = ExtResource("7_fv8rl")
+shader_parameter/resolution = Vector2(600, 400)
+shader_parameter/line_primary_color = Color(0.08, 0.85, 0.4, 1)
+shader_parameter/line_secondary_color = Color(0.85, 0.5, 0.25, 1)
+shader_parameter/line_tertiary_color = Color(0.8, 0.1, 0.35, 1)
+shader_parameter/color_gradient_pos = 0.5
+shader_parameter/line_thickness = 0.1
+shader_parameter/color_change_speed = 0.8
+shader_parameter/color_change_amplitude = 0.69
+shader_parameter/wave_speed = 1.5
+shader_parameter/wave_amplitude = 0.2
+shader_parameter/wave_frequency = 3.0
+shader_parameter/wave_offset = 1.8
+shader_parameter/iterations = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_puidh"]
+resource_local_to_scene = true
+shader = ExtResource("7_fv8rl")
+shader_parameter/resolution = Vector2(600, 400)
+shader_parameter/line_primary_color = Color(0.08, 0.85, 0.4, 1)
+shader_parameter/line_secondary_color = Color(0.85, 0.5, 0.25, 1)
+shader_parameter/line_tertiary_color = Color(0.8, 0.1, 0.35, 1)
+shader_parameter/color_gradient_pos = 0.5
+shader_parameter/line_thickness = 0.1
+shader_parameter/color_change_speed = 0.8
+shader_parameter/color_change_amplitude = 0.69
+shader_parameter/wave_speed = 1.5
+shader_parameter/wave_amplitude = 0.2
+shader_parameter/wave_frequency = 3.0
+shader_parameter/wave_offset = 1.8
+shader_parameter/iterations = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cojwc"]
+resource_local_to_scene = true
+shader = ExtResource("7_fv8rl")
+shader_parameter/resolution = Vector2(600, 400)
+shader_parameter/line_primary_color = Color(0.08, 0.85, 0.4, 1)
+shader_parameter/line_secondary_color = Color(0.85, 0.5, 0.25, 1)
+shader_parameter/line_tertiary_color = Color(0.8, 0.1, 0.35, 1)
+shader_parameter/color_gradient_pos = 0.5
+shader_parameter/line_thickness = 0.1
+shader_parameter/color_change_speed = 0.8
+shader_parameter/color_change_amplitude = 0.69
+shader_parameter/wave_speed = 1.5
+shader_parameter/wave_amplitude = 0.2
+shader_parameter/wave_frequency = 3.0
+shader_parameter/wave_offset = 1.8
+shader_parameter/iterations = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iu7sj"]
+resource_local_to_scene = true
+shader = ExtResource("7_fv8rl")
+shader_parameter/resolution = Vector2(600, 400)
+shader_parameter/line_primary_color = Color(0.08, 0.85, 0.4, 1)
+shader_parameter/line_secondary_color = Color(0.85, 0.5, 0.25, 1)
+shader_parameter/line_tertiary_color = Color(0.8, 0.1, 0.35, 1)
+shader_parameter/color_gradient_pos = 0.5
+shader_parameter/line_thickness = 0.1
+shader_parameter/color_change_speed = 0.8
+shader_parameter/color_change_amplitude = 0.69
+shader_parameter/wave_speed = 1.5
+shader_parameter/wave_amplitude = 0.2
+shader_parameter/wave_frequency = 3.0
+shader_parameter/wave_offset = 1.8
+shader_parameter/iterations = 4
+
+[sub_resource type="Animation" id="Animation_mkug8"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileMap/Void:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.6, 0.6), Vector2(10, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TileMap/Void/Centerblock/CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TileMap/Void/ColorRect2:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TileMap/Void/ColorRect:z_index")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TileMap/Void/ColorRect2/AnimatedSprite2D2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TileMap/Void/ColorRect/AnimatedSprite2D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8efte"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TileMap/Void:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TileMap/Void/Centerblock/CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TileMap/Void/ColorRect2:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TileMap/Void/ColorRect:z_index")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TileMap/Void/ColorRect2/AnimatedSprite2D2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.886275)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TileMap/Void/ColorRect/AnimatedSprite2D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.886275)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xx6d3"]
+_data = {
+"RESET": SubResource("Animation_8efte"),
+"die": SubResource("Animation_mkug8")
+}
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_fnxtp")
@@ -41,6 +268,7 @@ z_index = 1
 position = Vector2(-415, 455)
 
 [node name="TileMap" type="TileMap" parent="."]
+z_index = -1
 y_sort_enabled = true
 tile_set = SubResource("TileSet_ajha4")
 format = 2
@@ -50,20 +278,101 @@ layer_0/tile_data = PackedInt32Array(-196610, 2, 0, -131075, 2, 0, -65539, 2, 0,
 [node name="Void" parent="TileMap" instance=ExtResource("3_gfdxi")]
 
 [node name="Laser" parent="." instance=ExtResource("4_t28y2")]
-position = Vector2(-820, 433)
-rotation = -0.675106
+y_sort_enabled = true
+position = Vector2(-1078, 466)
+
+[node name="Area2D" parent="Laser" index="0"]
+position = Vector2(22, 14)
+rotation = 1.1143
+
+[node name="AnimatedSprite2D" parent="Laser" index="1"]
+frame = 1
+
+[node name="ColorRect" parent="Laser" index="2"]
+material = SubResource("ShaderMaterial_bpbao")
+offset_left = 75.0
+offset_top = -102.0
+offset_right = 883.0
+offset_bottom = -22.0
+rotation = -0.483485
 
 [node name="Laser2" parent="." instance=ExtResource("4_t28y2")]
-position = Vector2(-676, -433)
-rotation = 0.580251
+y_sort_enabled = true
+position = Vector2(-1051, -628)
+
+[node name="Area2D" parent="Laser2" index="0"]
+position = Vector2(49, 100)
+rotation = 0.515566
+
+[node name="CollisionShape2D" parent="Laser2/Area2D" index="0"]
+position = Vector2(-20.561, 26.594)
+rotation = -1.61911
+
+[node name="CollisionShape2D" parent="Laser2/Area2D/StaticBody2D" index="0"]
+position = Vector2(-26.0133, 25.0861)
+rotation = -1.63509
+
+[node name="AnimatedSprite2D" parent="Laser2" index="1"]
+frame = 2
+flip_h = true
+
+[node name="ColorRect" parent="Laser2" index="2"]
+z_index = 1
+material = SubResource("ShaderMaterial_puidh")
+offset_left = 100.0
+offset_top = 11.0
+offset_right = 908.0
+offset_bottom = 91.0
+rotation = 0.473645
 
 [node name="Laser3" parent="." instance=ExtResource("4_t28y2")]
-position = Vector2(696, 373)
-rotation = -2.50431
+position = Vector2(1074, 466)
+
+[node name="Area2D" parent="Laser3" index="0"]
+position = Vector2(10, 37)
+rotation = 2.10447
+
+[node name="AnimatedSprite2D" parent="Laser3" index="1"]
+z_index = 1
+frame = 1
+flip_h = true
+
+[node name="ColorRect" parent="Laser3" index="2"]
+material = SubResource("ShaderMaterial_cojwc")
+offset_left = -780.0
+offset_top = -470.0
+offset_right = 27.9999
+offset_bottom = -390.0
+rotation = 0.466055
 
 [node name="Laser4" parent="." instance=ExtResource("4_t28y2")]
-position = Vector2(681, -424)
-rotation = 2.38678
+position = Vector2(1059, -622)
+
+[node name="AnimatedSprite2D" parent="Laser4" index="1"]
+frame = 2
+
+[node name="ColorRect" parent="Laser4" index="2"]
+z_index = 1
+material = SubResource("ShaderMaterial_iu7sj")
+offset_left = -823.0
+offset_top = 372.0
+offset_right = -15.0
+offset_bottom = 452.0
+rotation = -0.4659
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.35, 0.35)
+zoom = Vector2(0.7, 0.7)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xx6d3")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_glsn0")
+
+[editable path="TileMap/Void"]
+[editable path="Laser"]
+[editable path="Laser2"]
+[editable path="Laser3"]
+[editable path="Laser4"]
