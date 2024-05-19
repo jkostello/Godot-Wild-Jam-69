@@ -7,7 +7,7 @@ extends Structure
 
 @export var dmg : float = 1.0
 @export var range := 300.0
-@export var cd := 0.5
+@export var cd := 1
 @export var durability := 10.0
 var primed : bool = true
 
@@ -87,7 +87,6 @@ func _on_area_2d_body_entered(body):
 	if body == player:
 		pass
 	else:
-		print("Hello, World")
 		colliding_enemies += 1
 		body.attacking = true
 		body.get_node("Attack").play()

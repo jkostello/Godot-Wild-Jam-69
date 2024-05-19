@@ -2,19 +2,21 @@ extends Node2D
 
 @onready var enemy = preload("res://enemy.tscn")
 @onready var scrap = preload("res://resources/resource.tscn")
+var eRampVar := 175
+var sRampVar := 150
 
-# Creates enemies
+# Creates enemies	
 func _physics_process(delta):
 	randomize()
 	
 	# Randomizes enemy spawning & location
-	if randi_range(0, 100) < 1: # 1/100 chance
+	if randi_range(0, eRampVar) < 1: # 1/100 chance
 		var new_e = enemy.instantiate()
 		new_e.position = Vector2(randf_range(-10.0,10.0), randf_range(-10.0,10.0))
 		get_tree().current_scene.add_child(new_e)
 	
 	# Randomizes scrap spawning & location
-	if randi_range(0, 150) < 1: # 1/150 chance
+	if randi_range(0, sRampVar) < 1: # 1/150 chance
 		var new_scrap = scrap.instantiate()
 		new_scrap.global_position = Vector2(randi_range(-1270, 1270), -1200)
 		get_tree().current_scene.add_child(new_scrap)
@@ -36,3 +38,11 @@ func _on_frametimer_timeout():
 	
 	$ColorRect/AnimatedSprite2D.frame = frame
 	$ColorRect2/AnimatedSprite2D2.frame = frame
+
+
+func _on_enemy_spawn_ramper_timeout():
+	if eRampVar >= 20:
+		eRampVar -= 2
+	if sRampVar >= 75:
+		sRampVar-=1
+	$enemySpawnRamper.start(3)
