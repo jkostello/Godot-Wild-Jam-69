@@ -1,4 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://qgmj66fv55ig"]
+[gd_scene load_steps=13 format=3 uid="uid://qgmj66fv55ig"]
+
 
 [ext_resource type="Script" path="res://UI/start_menu.gd" id="1_bwnhk"]
 [ext_resource type="PackedScene" uid="uid://d2ypbvp32opvk" path="res://UI/options.tscn" id="2_ui3rd"]
@@ -8,6 +9,58 @@
 [ext_resource type="Texture2D" uid="uid://cgfbtc8bm1smo" path="res://UI/theme.png" id="6_kt4ji"]
 [ext_resource type="Texture2D" uid="uid://ltmr14d0vm02" path="res://UI/pqyU3o.png" id="7_nngan"]
 [ext_resource type="Texture2D" uid="uid://eutc2c3u8mrl" path="res://UI/wild.png" id="8_7a3jl"]
+
+[sub_resource type="Animation" id="Animation_31sui"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fmf84"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rct83"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_da22c"]
+_data = {
+"RESET": SubResource("Animation_31sui"),
+"fade_in": SubResource("Animation_fmf84"),
+"fade_to_black": SubResource("Animation_rct83")
+}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -75,6 +128,22 @@ text = "Quit
 [node name="buttonPress" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_n0tlp")
 bus = &"SFX"
+
+[node name="fadeAnimation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ColorRect")
+libraries = {
+"": SubResource("AnimationLibrary_da22c")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
 
 [node name="Theme" type="Sprite2D" parent="."]
 visible = false

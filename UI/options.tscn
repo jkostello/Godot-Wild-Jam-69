@@ -48,37 +48,45 @@ vertical_alignment = 1
 [node name="Spacer2" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="AudioContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="MasterVLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="MasterVLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/AudioContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Master Volume"
 
-[node name="MasterSlider" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_cnipj")]
+[node name="MasterSlider" parent="PanelContainer/MarginContainer/VBoxContainer/AudioContainer" instance=ExtResource("3_cnipj")]
 layout_mode = 2
 bus_name = "Master"
 
-[node name="SFXVLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="SFXVLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/AudioContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "SFX Volume"
 
-[node name="SFXSlider" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_cnipj")]
+[node name="SFXSlider" parent="PanelContainer/MarginContainer/VBoxContainer/AudioContainer" instance=ExtResource("3_cnipj")]
 layout_mode = 2
 bus_name = "SFX"
 
-[node name="MusicVLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="MusicVLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/AudioContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Music Volume"
 
-[node name="MusicSlider" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_cnipj")]
+[node name="MusicSlider" parent="PanelContainer/MarginContainer/VBoxContainer/AudioContainer" instance=ExtResource("3_cnipj")]
 layout_mode = 2
 bus_name = "Music"
 
-[node name="Spacer3" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Spacer3" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/AudioContainer"]
+layout_mode = 2
+
+[node name="Windowed" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Windowed"
+
+[node name="Spacer3" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
@@ -107,4 +115,5 @@ theme = ExtResource("2_3xn55")
 theme_override_font_sizes/font_size = 25
 text = "Back"
 
+[connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/Windowed" to="." method="_on_windowed_toggled"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]

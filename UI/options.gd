@@ -22,12 +22,16 @@ var input_actions = {
 
 
 func _ready():
+	# I have no idea why I have to do this I just do
+	_on_windowed_toggled(false)
+	_on_windowed_toggled(true)
+	_on_windowed_toggled(false)
+	
 	_create_action_list()
 	hide()
 
 # Initially creates all remap buttons
 func _create_action_list():
-	InputMap.load_from_project_settings()
 	for item in action_list.get_children(): # Remove temp button
 		item.queue_free()
 		
@@ -82,4 +86,17 @@ func _update_action_list(button, event):
 
 # Reset all keybinds to default
 func _on_reset_button_pressed():
+	InputMap.load_from_project_settings()
 	_create_action_list()
+
+# Toggles windowed/fullscreen
+func _on_windowed_toggled(toggled_on):
+	# Set windowed
+	if (toggled_on):
+		DisplayServer.window_set_mode(0, 0)
+		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+		DisplayServer.window_set_size(Vector2(1920, 1080))
+	# Set fullscreen
+	else:
+		DisplayServer.window_set_mode(3, 0)
+		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)

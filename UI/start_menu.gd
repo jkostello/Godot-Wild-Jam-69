@@ -9,11 +9,18 @@ func _ready():
 	$HowToPlay.hide()
 	optionsBackButton.pressed.connect(_on_options_back_button_pressed)
 	playBackButton.pressed.connect(_on_play_back_button_pressed)
+	
+	# Fade in
+	$ColorRect.visible = true
+	$fadeAnimation.play("fade_in")
+	await $fadeAnimation.animation_finished
+	$ColorRect.visible = false
 
 # Change to main level
 func _on_start_pressed():
 	$buttonPress.play()
-	await $buttonPress.finished
+	fadeOut()
+	await $fadeAnimation.animation_finished
 	get_tree().change_scene_to_file("res://level.tscn")
 
 # Update control text, show how to play screen
@@ -35,7 +42,8 @@ func _on_options_pressed():
 # Quit game
 func _on_quit_pressed():
 	$buttonPress.play()
-	await $buttonPress.finished
+	fadeOut()
+	await $fadeAnimation.animation_finished
 	get_tree().quit()
 
 # Hide options screen, show main screen
@@ -49,3 +57,7 @@ func _on_play_back_button_pressed():
 	$buttonPress.play()
 	$HowToPlay.hide()
 	$MainPanel.show()
+
+func fadeOut():
+	$ColorRect.visible = true
+	$fadeAnimation.play("fade_to_black")

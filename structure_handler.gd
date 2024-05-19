@@ -20,13 +20,17 @@ var Structures : Array = []
 
 # Remove highlight_block from structure_handler, add to level
 func _ready():
-	# Update button shortcuts
-	%structureBut1.shortcut.events = InputMap.action_get_events("select_structure_1")
-	%structureBut2.shortcut.events = InputMap.action_get_events("select_structure_2")
-	%structureBut3.shortcut.events = InputMap.action_get_events("select_structure_3")
+	updateShortcuts()
 	
 	self.remove_child(highlight_block)
 	get_tree().current_scene.call_deferred("add_child", highlight_block)
+
+# Updates shortcuts for buttons
+func updateShortcuts():
+	%structureBut1.shortcut.events = InputMap.action_get_events("select_structure_1")
+	%structureBut2.shortcut.events = InputMap.action_get_events("select_structure_2")
+	%structureBut3.shortcut.events = InputMap.action_get_events("select_structure_3")
+
 
 # Change highlight block color, move block
 func _process(delta):

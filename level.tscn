@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ckmh6gnitv64p"]
+[gd_scene load_steps=20 format=3 uid="uid://ckmh6gnitv64p"]
 
 [ext_resource type="PackedScene" uid="uid://bpg2lcg0737in" path="res://structure_handler.tscn" id="1_7h3wo"]
 [ext_resource type="Script" path="res://level.gd" id="1_fnxtp"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bkwa8366unv8y" path="res://player.tscn" id="5_w3uvl"]
 [ext_resource type="Shader" path="res://laser.gdshader" id="7_fv8rl"]
 [ext_resource type="AudioStream" uid="uid://7us4g0ytk3co" path="res://consume.wav" id="8_glsn0"]
+[ext_resource type="PackedScene" uid="uid://i48t7rwoaplh" path="res://UI/pause_menu.tscn" id="8_pf3jv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j53cu"]
 vertices = PackedVector2Array(150, 0, 0, 75, -150, 0, 0, -75)
@@ -263,6 +264,16 @@ script = ExtResource("1_fnxtp")
 metadata/activeTilemap = NodePath("../../TileMap")
 metadata/playerNode = NodePath("../../Player")
 
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_pf3jv")]
+process_mode = 3
+visible = false
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_w3uvl")]
 z_index = 1
 position = Vector2(-415, 455)
@@ -370,6 +381,7 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_glsn0")
+bus = &"SFX"
 
 [editable path="TileMap/Void"]
 [editable path="Laser"]

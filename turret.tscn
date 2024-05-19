@@ -28,6 +28,7 @@ default_color = Color(0, 1, 1, 1)
 [node name="laserSound" type="AudioStreamPlayer2D" parent="." index="1"]
 stream = ExtResource("4_phr27")
 volume_db = -10.0
+bus = &"SFX"
 
 [node name="dieSound" type="AudioStreamPlayer2D" parent="." index="2"]
 stream = ExtResource("4_phr27")
