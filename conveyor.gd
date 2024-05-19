@@ -8,31 +8,30 @@ func _ready():
 	value = 2
 
 func _physics_process(delta):
-	var push_vec : Vector2
 	match facing_dir:
 		0:
-			push_vec = Vector2(-2,-1).normalized()
 			$Sprite2D.flip_h = true
 			$Sprite2D.flip_v = true # Change this to vertical sprite
 		1:
-			push_vec = Vector2(2,-1).normalized()
 			$Sprite2D.flip_h = false
 			$Sprite2D.flip_v = true # Change this to vertical sprite
 		2:
-			push_vec = Vector2(2,1).normalized()
 			$Sprite2D.flip_h = false
 			$Sprite2D.flip_v = false # Change this to vertical sprite
 		3:
-			push_vec = Vector2(-2,1).normalized()
 			$Sprite2D.flip_h = true
 			$Sprite2D.flip_v = false # Change this to vertical sprite
 	
 	for b in touching_bodies:
-		var temp_v = b.velocity
-		b.velocity = push_vec * strength
-		b.move_and_slide()
-		b.velocity = temp_v
-
+		match facing_dir:
+			0:
+				b.push1 = true
+			1:
+				b.push2 = true
+			2:
+				b.push3 = true
+			3:
+				b.push4 = true
 
 
 func _on_area_2d_body_entered(body):
@@ -41,3 +40,13 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	touching_bodies.erase(body)
+	
+	match facing_dir:
+		0:
+			body.push1 = false
+		1:
+			body.push2 = false
+		2:
+			body.push3 = false
+		3:
+			body.push4 = false
