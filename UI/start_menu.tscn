@@ -1,6 +1,5 @@
 [gd_scene load_steps=13 format=3 uid="uid://qgmj66fv55ig"]
 
-
 [ext_resource type="Script" path="res://UI/start_menu.gd" id="1_bwnhk"]
 [ext_resource type="PackedScene" uid="uid://d2ypbvp32opvk" path="res://UI/options.tscn" id="2_ui3rd"]
 [ext_resource type="PackedScene" uid="uid://bg3hqbij4tfk6" path="res://UI/how_to_play.tscn" id="3_bfi3k"]
@@ -135,6 +134,19 @@ libraries = {
 "": SubResource("AnimationLibrary_da22c")
 }
 
+[node name="Theme" type="Sprite2D" parent="."]
+position = Vector2(1610.26, 885.5)
+texture = ExtResource("6_kt4ji")
+
+[node name="PqyU3o" type="Sprite2D" parent="."]
+position = Vector2(1677.4, 999.5)
+scale = Vector2(0.161039, 0.161039)
+texture = ExtResource("7_nngan")
+
+[node name="Wild" type="Sprite2D" parent="."]
+position = Vector2(241, 829)
+texture = ExtResource("8_7a3jl")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 layout_mode = 1
@@ -144,22 +156,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
-
-[node name="Theme" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(1610.26, 885.5)
-texture = ExtResource("6_kt4ji")
-
-[node name="PqyU3o" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(1677.4, 999.5)
-scale = Vector2(0.161039, 0.161039)
-texture = ExtResource("7_nngan")
-
-[node name="Wild" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(241, 829)
-texture = ExtResource("8_7a3jl")
 
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/HowToPlay" to="." method="_on_how_to_play_pressed"]
