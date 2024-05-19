@@ -85,7 +85,7 @@ disabled = true
 action_mode = 0
 shortcut = SubResource("Shortcut_kbh82")
 text = "Gun Turret
-Cost: 15 Scrap"
+Cost: 20 Scrap"
 
 [node name="structureBut2" type="Button" parent="VBoxContainer/buttonHolder/HBoxContainer"]
 unique_name_in_owner = true

@@ -14,10 +14,9 @@ func _physics_process(delta):
 		get_tree().current_scene.add_child(new_e)
 	
 	# Randomizes scrap spawning & location
-	# TODO: make scrap spawn from sky and fall
-	if randi_range(0, 50) < 1: # 1/500 chance
+	if randi_range(0, 150) < 1: # 1/150 chance
 		var new_scrap = scrap.instantiate()
-		new_scrap.global_position = Vector2(randi_range(-1500, 1500), -1200)
+		new_scrap.global_position = Vector2(randi_range(-1270, 1270), -1200)
 		get_tree().current_scene.add_child(new_scrap)
 	
 	
