@@ -50,6 +50,7 @@ radius = 213.009
 script = ExtResource("2_e8j82")
 
 [node name="Sprite2D" parent="." index="0"]
+z_index = 1
 position = Vector2(0, -101)
 texture = ExtResource("2_8qygx")
 hframes = 9

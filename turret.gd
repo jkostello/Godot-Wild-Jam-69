@@ -5,7 +5,7 @@ extends Structure
 @onready var player = get_node("/root/Level/Player")
 @onready var handler = get_node("/root/Level/CanvasLayer/structure_handler")
 
-@export var dmg := 1
+@export var dmg : float = 1.0
 @export var range := 700
 @export var cd := 0.5
 @export var durability := 10.0
@@ -61,7 +61,7 @@ func shoot():
 	laserAlpha = 1
 	nearestEnemy.takeDMG(dmg)
 	$laserSound.play()
-	laser.points[1] = to_local(Vector2(nearestEnemy.position.x,nearestEnemy.position.y))
+	laser.points[1] = to_local(Vector2(nearestEnemy.position.x,nearestEnemy.position.y+100))
 	primed = false
 	coolDown()
 

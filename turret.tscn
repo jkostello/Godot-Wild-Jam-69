@@ -31,10 +31,11 @@ _data = {
 }
 
 [node name="Structure" instance=ExtResource("1_odcfn")]
+z_index = 1
 script = ExtResource("2_eq845")
-dmg = 1
-range = 200
-cd = 1.0
+dmg = 0.5
+range = 300
+cd = 0.2
 durability = 10.0
 
 [node name="Sprite2D" parent="." index="0"]

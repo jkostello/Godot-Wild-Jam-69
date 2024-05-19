@@ -17,6 +17,7 @@ var push4 := false
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
+	$AnimationPlayer.play("enemy_waddle")
 	
 
 func takeDMG(dmg): #Take damage
