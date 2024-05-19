@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkwa8366unv8y"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_e0146"]
-[ext_resource type="Texture2D" uid="uid://bx5dvtc0m5646" path="res://icon.svg" id="2_j28ih"]
+[ext_resource type="Texture2D" uid="uid://dgucnxq52tur2" path="res://sprites/player/down-Sheet.png" id="2_hg67c"]
 [ext_resource type="AudioStream" uid="uid://by3xky47l8vt6" path="res://footstep.wav" id="3_p5ef8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rjscj"]
@@ -19,7 +19,8 @@ shape = SubResource("CircleShape2D_rjscj")
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(2.98023e-08, -51)
 scale = Vector2(0.613281, 1)
-texture = ExtResource("2_j28ih")
+texture = ExtResource("2_hg67c")
+hframes = 4
 
 [node name="Steptimer" type="Timer" parent="."]
 wait_time = 0.3
@@ -29,5 +30,7 @@ autostart = true
 stream = ExtResource("3_p5ef8")
 volume_db = -16.109
 bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="timeout" from="Steptimer" to="." method="_on_steptimer_timeout"]
