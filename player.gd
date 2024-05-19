@@ -19,6 +19,7 @@ func _physics_process(delta):
 	direction = direction.normalized()
 	velocity = direction * speed
 	velocity = velocity.move_toward(Vector2.ZERO, speed / 4)
+	z_index = position.y+50
 	
 	
 	move_and_slide()
