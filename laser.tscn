@@ -50,6 +50,8 @@ shader_parameter/wave_offset = 1.8
 shader_parameter/iterations = 4
 
 [node name="Laser" type="Node2D" groups=["Laser"]]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_gukvq")
 
 [node name="Area2D" type="Area2D" parent="."]
