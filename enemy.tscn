@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://baw8v1xbohdqb" path="res://enemyattack.wav" id="3_xrptl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3psbd"]
-radius = 34.0
+radius = 30.0167
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r0t7i"]
 radius = 43.0
@@ -34,13 +34,13 @@ _data = {
 }
 
 [node name="Enemy" type="CharacterBody2D"]
-modulate = Color(1, 1, 1, 0)
 collision_layer = 4
 collision_mask = 69
 motion_mode = 1
 script = ExtResource("1_2offh")
 
 [node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(8, -43)
 scale = Vector2(0.475, 0.475)
 texture = ExtResource("2_i6n2f")
 hframes = 4
