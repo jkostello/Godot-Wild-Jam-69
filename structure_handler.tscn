@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bpg2lcg0737in"]
+[gd_scene load_steps=14 format=3 uid="uid://bpg2lcg0737in"]
 
 [ext_resource type="Script" path="res://structure_handler.gd" id="1_sjf38"]
 [ext_resource type="Texture2D" uid="uid://y1qtlj332y4q" path="res://green_highlight.png" id="2_4xf2m"]
@@ -96,7 +96,7 @@ disabled = true
 action_mode = 0
 shortcut = SubResource("Shortcut_4ors3")
 text = "Conveyor Belt
-Cost: 5"
+Cost: 5 Scrap"
 
 [node name="structureBut3" type="Button" parent="VBoxContainer/buttonHolder/HBoxContainer"]
 unique_name_in_owner = true
@@ -107,7 +107,8 @@ theme_override_font_sizes/font_size = 20
 disabled = true
 action_mode = 0
 shortcut = SubResource("Shortcut_voyqk")
-text = "Magnet"
+text = "Magnet
+Cost: 10 Scrap"
 
 [node name="dcButton" type="Button" parent="VBoxContainer/buttonHolder/HBoxContainer"]
 unique_name_in_owner = true
