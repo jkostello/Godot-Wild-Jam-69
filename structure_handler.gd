@@ -4,10 +4,12 @@ extends Control
 @onready var tile_map : TileMap = get_node(self.get_meta("activeTilemap"))
 @onready var conveyor = preload("res://conveyor.tscn")
 @onready var turret = preload("res://turret.tscn")
+@onready var magnet = preload("res://magnet.tscn")
 @onready var player : Node2D = get_node(self.get_meta("playerNode"))
 
 @export var conveyorCost : int = 5
-@export var turretCost : int = 15
+@export var turretCost : int = 20
+@export var magnetCost : int = 10
 var structure_selected = 0
 var spaceTaken : bool = false
 var clicked_cell := Vector2.ZERO
@@ -150,7 +152,13 @@ func buildStructure():
 			var new_c = conveyor.instantiate()
 			new_c.facing_dir = struct_r
 			createStruct(new_c)
-			
+		elif structure_selected == 3 and player.resource >= magnetCost:
+			newScrap = -magnetCost
+			var new_m = magnet.instantiate()
+			new_m.facing_dir = struct_r
+			createStruct(new_m)
+		
+		
 	# Destruct
 	elif structure_selected == 4:
 		Structures.erase(checkedSpace)

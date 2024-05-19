@@ -47,7 +47,7 @@ func _physics_process(delta):
 		# Checks if closer turret exists
 		for t in get_tree().get_nodes_in_group("Turret"):
 			var t_dist = global_position.distance_to(t.global_position)
-			if t_dist < global_position.distance_to(closest_target) and t_dist < 200.0: # 200.0 should be turret range
+			if t_dist < global_position.distance_to(closest_target) and t_dist < 200.0: #TODO Should be turret range
 				closest_target = t.global_position
 	
 	# If no turrets, set target to laser
