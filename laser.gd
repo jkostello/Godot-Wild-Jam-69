@@ -33,7 +33,7 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body):
 	if (body == player):
 		repairing = true
-	else:
+	elif body is Enemy:
 		colliding_enemies += 1
 		body.attacking = true
 		body.get_node("Attack").play()
@@ -42,7 +42,7 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	if (body == player):
 		repairing = false
-	else:
+	elif body is Enemy:
 		colliding_enemies -= 1
 		body.attacking = false
 
