@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://ca4ojcmrepr24" path="res://UI/standard_theme.tres" id="2_74kgc"]
 [ext_resource type="FontFile" uid="uid://c2t1amxynu30o" path="res://UI/PublicPixel-E447g.ttf" id="3_gtkc3"]
 [ext_resource type="Texture2D" uid="uid://dr1vjo8ouk3jk" path="res://CONVEYER.png" id="5_1xwl3"]
-[ext_resource type="Texture2D" uid="uid://cvnbxf5ey3028" path="res://turret dev.png" id="5_k7ex3"]
+[ext_resource type="Texture2D" uid="uid://1d7r30iygkv7" path="res://PLASMATURRET-Sheet.png" id="5_s0kxp"]
 [ext_resource type="AudioStream" uid="uid://d0xsgl77b48ty" path="res://build.wav" id="6_6ihdj"]
 [ext_resource type="Texture2D" uid="uid://xlpbskb76g0h" path="res://MAGNET-Sheet.png" id="6_wdepu"]
 
@@ -130,7 +130,8 @@ offset = Vector2(0, -72)
 [node name="turretSprite" type="Sprite2D" parent="highlightBlock"]
 visible = false
 position = Vector2(0, -120)
-texture = ExtResource("5_k7ex3")
+texture = ExtResource("5_s0kxp")
+hframes = 5
 
 [node name="conveyorSprite" type="Sprite2D" parent="highlightBlock"]
 visible = false

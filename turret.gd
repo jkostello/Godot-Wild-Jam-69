@@ -19,8 +19,9 @@ var closeEnough : bool = false
 func _ready():
 	print(handler)
 	add_to_group("Turret")
-	laser.points[0] = to_local(Vector2.ZERO)
+	laser.points[0] = to_local(Vector2(0,-100))
 	value = 1
+	$AnimationPlayer.play("turret")
 
 func coolDown():
 	timer.start(cd)
@@ -60,7 +61,7 @@ func shoot():
 	laserAlpha = 1
 	nearestEnemy.takeDMG(dmg)
 	$laserSound.play()
-	laser.points[1] = to_local(nearestEnemy.global_position)
+	laser.points[1] = to_local(Vector2(nearestEnemy.position.x,nearestEnemy.position.y))
 	primed = false
 	coolDown()
 
