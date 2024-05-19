@@ -227,9 +227,3 @@ func _input(event):
 			struct_r += 1
 			if struct_r == 4:
 				struct_r = 0
-		
-		#INDEV FUNCTION, INCREASES SCRAP BY 10
-		if OS.is_debug_build():
-			if (Input.is_key_pressed(KEY_0) and not event.is_echo()):
-				updateScrapUI(10)
-

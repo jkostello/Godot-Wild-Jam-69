@@ -314,6 +314,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 124.505, -236.125)
 
 [node name="Laser" type="TabBar" parent="Panel/MarginContainer/VBoxContainer/StructuresContainer"]
+visible = false
 layout_mode = 2
 
 [node name="LaserContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/StructuresContainer/Laser"]
