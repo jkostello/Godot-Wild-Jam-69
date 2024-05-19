@@ -26,5 +26,6 @@ autostart = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_p5ef8")
 volume_db = -16.109
+bus = &"SFX"
 
 [connection signal="timeout" from="Steptimer" to="." method="_on_steptimer_timeout"]

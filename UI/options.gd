@@ -27,7 +27,6 @@ func _ready():
 
 # Initially creates all remap buttons
 func _create_action_list():
-	InputMap.load_from_project_settings()
 	for item in action_list.get_children(): # Remove temp button
 		item.queue_free()
 		
@@ -82,4 +81,5 @@ func _update_action_list(button, event):
 
 # Reset all keybinds to default
 func _on_reset_button_pressed():
+	InputMap.load_from_project_settings()
 	_create_action_list()

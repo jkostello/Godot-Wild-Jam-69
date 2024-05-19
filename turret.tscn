@@ -24,5 +24,6 @@ default_color = Color(0, 1, 1, 1)
 [node name="laserSound" type="AudioStreamPlayer2D" parent="." index="1"]
 stream = ExtResource("4_r2rlb")
 volume_db = -10.0
+bus = &"SFX"
 
 [connection signal="timeout" from="Sprite2D/Timer" to="." method="_on_timer_timeout"]
