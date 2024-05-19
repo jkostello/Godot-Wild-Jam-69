@@ -21,6 +21,8 @@ func _on_how_to_play_pressed():
 	$buttonPress.play()
 	$HowToPlay.update_controls()
 	$HowToPlay/Panel/MarginContainer/VBoxContainer/TabContainer.current_tab = 0
+	$HowToPlay/Panel/MarginContainer/VBoxContainer/StructuresContainer.current_tab = 0
+	$HowToPlay/Panel/MarginContainer/VBoxContainer/StructuresContainer.hide()
 	$HowToPlay.show()
 	$MainPanel.hide()
 
