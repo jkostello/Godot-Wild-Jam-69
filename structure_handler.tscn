@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpg2lcg0737in"]
+[gd_scene load_steps=13 format=3 uid="uid://bpg2lcg0737in"]
 
 [ext_resource type="Script" path="res://structure_handler.gd" id="1_sjf38"]
 [ext_resource type="Texture2D" uid="uid://y1qtlj332y4q" path="res://green_highlight.png" id="2_4xf2m"]
 [ext_resource type="Theme" uid="uid://ca4ojcmrepr24" path="res://UI/standard_theme.tres" id="2_74kgc"]
+[ext_resource type="FontFile" uid="uid://c2t1amxynu30o" path="res://UI/PublicPixel-E447g.ttf" id="3_gtkc3"]
 [ext_resource type="Texture2D" uid="uid://dr1vjo8ouk3jk" path="res://CONVEYER.png" id="5_1xwl3"]
 [ext_resource type="Texture2D" uid="uid://cvnbxf5ey3028" path="res://turret dev.png" id="5_k7ex3"]
 [ext_resource type="AudioStream" uid="uid://d0xsgl77b48ty" path="res://build.wav" id="6_6ihdj"]
@@ -64,6 +65,8 @@ size_flags_stretch_ratio = 0.25
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_74kgc")
+theme_override_fonts/normal_font = ExtResource("3_gtkc3")
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "
 [center]Scrap 
@@ -104,7 +107,7 @@ theme_override_font_sizes/font_size = 20
 disabled = true
 action_mode = 0
 shortcut = SubResource("Shortcut_voyqk")
-text = "Structure 3"
+text = "Magnet"
 
 [node name="dcButton" type="Button" parent="VBoxContainer/buttonHolder/HBoxContainer"]
 unique_name_in_owner = true
