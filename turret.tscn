@@ -1,12 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo3mswpai0sp6"]
+[gd_scene load_steps=8 format=3 uid="uid://bo3mswpai0sp6"]
 
 [ext_resource type="PackedScene" uid="uid://b1kv3djwawgx" path="res://structure.tscn" id="1_odcfn"]
 [ext_resource type="Script" path="res://turret.gd" id="2_eq845"]
-[ext_resource type="Texture2D" uid="uid://cvnbxf5ey3028" path="res://turret dev.png" id="2_tfr18"]
+[ext_resource type="Texture2D" uid="uid://1d7r30iygkv7" path="res://PLASMATURRET-Sheet.png" id="3_oa6g1"]
 [ext_resource type="AudioStream" uid="uid://buy6fgiukihsg" path="res://laser break.wav" id="4_phr27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0k46r"]
 size = Vector2(100, 100)
+
+[sub_resource type="Animation" id="Animation_jvu82"]
+resource_name = "turret"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ojt0u"]
+_data = {
+"turret": SubResource("Animation_jvu82")
+}
 
 [node name="Structure" instance=ExtResource("1_odcfn")]
 script = ExtResource("2_eq845")
@@ -17,7 +39,9 @@ durability = 10.0
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -120)
-texture = ExtResource("2_tfr18")
+texture = ExtResource("3_oa6g1")
+hframes = 5
+frame = 3
 
 [node name="Timer" type="Timer" parent="Sprite2D" index="0"]
 
@@ -40,6 +64,11 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_0k46r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_ojt0u")
+}
 
 [connection signal="timeout" from="Sprite2D/Timer" to="." method="_on_timer_timeout"]
 [connection signal="finished" from="dieSound" to="." method="_on_die_sound_finished"]

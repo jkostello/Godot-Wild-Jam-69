@@ -4,6 +4,7 @@ extends Structure
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	value = 3
+	$AnimationPlayer.play("magnet")
 	pass # Replace with function body.
 
 
