@@ -73,7 +73,6 @@ shape = SubResource("CapsuleShape2D_ewvee")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.90735e-06, -3.8147e-06)
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_83u5x")
 
 [node name="ColorRect" type="ColorRect" parent="."]
