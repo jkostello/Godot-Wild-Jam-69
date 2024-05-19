@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Enemy
 
 @export var speed := 50.0
 @export var health := 3
@@ -7,6 +8,13 @@ var player : CharacterBody2D
 var tangible := false
 var attacking := false
 
+
+var push1 := false
+var push2 := false
+var push3 := false
+var push4 := false
+
+
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 	
@@ -14,8 +22,10 @@ func _ready():
 func takeDMG(dmg): #Take damage
 	health -= dmg
 	if health <= 0 and not $Die.playing: #DIE
+		$Area2D/CollisionShape2D.disabled = true
 		remove_from_group("Enemy")
 		visible = false # Replace with death animation
+		attacking=false
 		$Die.play()
 		
 
@@ -37,7 +47,7 @@ func _physics_process(delta):
 		# Checks if closer turret exists
 		for t in get_tree().get_nodes_in_group("Turret"):
 			var t_dist = global_position.distance_to(t.global_position)
-			if t_dist < global_position.distance_to(closest_target) and t_dist < 200.0: # 200.0 should be turret range
+			if t_dist < global_position.distance_to(closest_target) and t_dist < 200.0: #TODO Should be turret range
 				closest_target = t.global_position
 	
 	# If no turrets, set target to laser
@@ -63,6 +73,23 @@ func _physics_process(delta):
 			velocity = Vector2.ZERO
 		
 		move_and_slide()
+	
+	
+	var temp_v = velocity
+	var push_vec := Vector2(0,0)
+	if push1:
+		push_vec += Vector2(-1,-0.5)
+	if push2:
+		push_vec += Vector2(1,-0.5)
+	if push3:
+		push_vec += Vector2(1,0.5)
+	if push4:
+		push_vec += Vector2(-1,0.5)
+	
+	push_vec = push_vec.normalized()
+	velocity = push_vec * 50
+	move_and_slide()
+	velocity = temp_v
 
 
 func _on_die_finished():

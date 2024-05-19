@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://qgmj66fv55ig"]
+[gd_scene load_steps=13 format=3 uid="uid://qgmj66fv55ig"]
+
 
 [ext_resource type="Script" path="res://UI/start_menu.gd" id="1_bwnhk"]
 [ext_resource type="PackedScene" uid="uid://d2ypbvp32opvk" path="res://UI/options.tscn" id="2_ui3rd"]
 [ext_resource type="PackedScene" uid="uid://bg3hqbij4tfk6" path="res://UI/how_to_play.tscn" id="3_bfi3k"]
 [ext_resource type="Theme" uid="uid://ca4ojcmrepr24" path="res://UI/standard_theme.tres" id="4_xn50i"]
 [ext_resource type="AudioStream" uid="uid://b1m6cyjai3rco" path="res://UI/button_press.mp3" id="5_n0tlp"]
+[ext_resource type="Texture2D" uid="uid://cgfbtc8bm1smo" path="res://UI/theme.png" id="6_kt4ji"]
+[ext_resource type="Texture2D" uid="uid://ltmr14d0vm02" path="res://UI/pqyU3o.png" id="7_nngan"]
+[ext_resource type="Texture2D" uid="uid://eutc2c3u8mrl" path="res://UI/wild.png" id="8_7a3jl"]
 
 [sub_resource type="Animation" id="Animation_31sui"]
 length = 0.001
@@ -140,6 +144,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="Theme" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1610.26, 885.5)
+texture = ExtResource("6_kt4ji")
+
+[node name="PqyU3o" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1677.4, 999.5)
+scale = Vector2(0.161039, 0.161039)
+texture = ExtResource("7_nngan")
+
+[node name="Wild" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(241, 829)
+texture = ExtResource("8_7a3jl")
 
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/HowToPlay" to="." method="_on_how_to_play_pressed"]
