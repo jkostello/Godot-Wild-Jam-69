@@ -13,7 +13,7 @@ config_version=5
 config/name="Godot Wild Jam 69"
 run/main_scene="res://UI/start_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://LOGO.png"
+config/icon="res://ICON.png"
 
 [display]
 

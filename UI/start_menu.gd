@@ -31,13 +31,13 @@ func _on_how_to_play_pressed():
 	$HowToPlay/Panel/MarginContainer/VBoxContainer/StructuresContainer.current_tab = 0
 	$HowToPlay/Panel/MarginContainer/VBoxContainer/StructuresContainer.hide()
 	$HowToPlay.show()
-	$MainPanel.hide()
+	hideMain()
 
 # Show options screen
 func _on_options_pressed():
 	$buttonPress.play()
 	$Options.show()
-	$MainPanel.hide()
+	hideMain()
 
 # Quit game
 func _on_quit_pressed():
@@ -50,14 +50,22 @@ func _on_quit_pressed():
 func _on_options_back_button_pressed():
 	$buttonPress.play()
 	$Options.hide()
-	$MainPanel.show()
+	showMain()
 
 # Hide how to play screen, show main screen
 func _on_play_back_button_pressed():
 	$buttonPress.play()
 	$HowToPlay.hide()
-	$MainPanel.show()
+	showMain()
 
 func fadeOut():
 	$ColorRect.visible = true
 	$fadeAnimation.play("fade_to_black")
+
+func hideMain():
+	$MainPanel.hide()
+	$Logo.hide()
+	
+func showMain():
+	$MainPanel.show()
+	$Logo.show()
