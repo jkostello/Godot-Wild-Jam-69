@@ -88,7 +88,6 @@ layout_mode = 2
 theme = ExtResource("2_pn2y8")
 
 [node name="About" type="TabBar" parent="Panel/MarginContainer/VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="AboutContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/TabContainer/About"]
@@ -221,7 +220,6 @@ visible = false
 layout_mode = 2
 
 [node name="Turret" type="TabBar" parent="Panel/MarginContainer/VBoxContainer/StructuresContainer"]
-visible = false
 layout_mode = 2
 
 [node name="TurretContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/StructuresContainer/Turret"]
