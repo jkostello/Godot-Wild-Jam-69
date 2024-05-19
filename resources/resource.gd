@@ -12,6 +12,7 @@ var push4 := false
 
 
 func _ready():
+	add_to_group("scrap")
 	destination_position = Vector2(global_position.x + randi_range(-100, 100), randi_range(-650, 650))
 	$CharacterBody2D.global_position = destination_position
 	if $CharacterBody2D.move_and_slide():
@@ -20,11 +21,12 @@ func _ready():
 func _physics_process(delta):
 	if moving:
 		global_position = global_position.move_toward(destination_position, 10)
-		$Area2D/CollisionShape2D.disabled = true
 	else:
 		$Area2D/CollisionShape2D.disabled = false
-	if global_position == destination_position:
+	if global_position.distance_to(destination_position) < 50:
 		moving = false
+	else:
+		moving=true
 	
 	
 	
