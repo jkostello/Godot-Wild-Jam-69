@@ -1,6 +1,6 @@
 extends Structure
 
-@export var strength := 10.0
+@export var strength := 80.0
 
 var touching_bodies := []
 

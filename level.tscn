@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ckmh6gnitv64p"]
+[gd_scene load_steps=32 format=3 uid="uid://ckmh6gnitv64p"]
 
 [ext_resource type="PackedScene" uid="uid://bpg2lcg0737in" path="res://structure_handler.tscn" id="1_7h3wo"]
 [ext_resource type="Script" path="res://level.gd" id="1_fnxtp"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://i48t7rwoaplh" path="res://UI/pause_menu.tscn" id="8_pf3jv"]
 [ext_resource type="Texture2D" uid="uid://ccu7lufir8gag" path="res://GRATE.png" id="9_pxnbi"]
 [ext_resource type="Texture2D" uid="uid://vi1prl34lyrh" path="res://crate.png" id="10_2n4q7"]
+[ext_resource type="AudioStream" uid="uid://hax4rrlilheq" path="res://Limit_70.mp3" id="15_52t0q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_saxfq"]
 texture = ExtResource("6_7eohq")
@@ -460,7 +461,13 @@ shape = SubResource("RectangleShape2D_ebvur")
 position = Vector2(2, -781)
 shape = SubResource("RectangleShape2D_tbqis")
 
+[node name="musicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_52t0q")
+autoplay = true
+bus = &"Music"
+
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="finished" from="musicPlayer" to="." method="_on_music_player_finished"]
 
 [editable path="TileMap/Void"]
 [editable path="Laser"]
