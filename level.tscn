@@ -410,7 +410,6 @@ stream = ExtResource("8_glsn0")
 bus = &"SFX"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-555, 1863)
 collision_layer = 3
 collision_mask = 3
 
