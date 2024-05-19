@@ -81,6 +81,14 @@ bus_name = "Music"
 [node name="Spacer3" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/AudioContainer"]
 layout_mode = 2
 
+[node name="Windowed" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Windowed"
+
+[node name="Spacer3" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -107,4 +115,5 @@ theme = ExtResource("2_3xn55")
 theme_override_font_sizes/font_size = 25
 text = "Back"
 
+[connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/Windowed" to="." method="_on_windowed_toggled"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
