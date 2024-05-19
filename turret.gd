@@ -39,6 +39,10 @@ func getNearestEnemy():
 			closeEnough = true
 
 func shoot():
+	if nearestEnemy.global_position.y > global_position.y:
+		laser.z_index = 1
+	else:
+		laser.z_index = -1
 	laserAlpha = 1
 	nearestEnemy.takeDMG(dmg)
 	$laserSound.play()
