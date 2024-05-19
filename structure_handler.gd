@@ -202,10 +202,10 @@ func _input(event):
 			
 	# If space pressed, deselect structure
 	if event is InputEventKey:
-		if (Input.is_action_pressed("deselect") and not event.is_echo()):
+		if (Input.is_action_just_pressed("deselect") and not event.is_echo()):
 			structure_selected = 0
 			highlight_block.visible = false
-		if (Input.is_key_pressed(KEY_R) and not event.is_echo()):
+		if (Input.is_action_just_pressed("rotate") and not event.is_echo()):
 			struct_r += 1
 			if struct_r == 4:
 				struct_r = 0
