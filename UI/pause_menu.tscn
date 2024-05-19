@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://i48t7rwoaplh"]
+[gd_scene load_steps=5 format=3 uid="uid://i48t7rwoaplh"]
 
 [ext_resource type="Theme" uid="uid://ca4ojcmrepr24" path="res://UI/standard_theme.tres" id="1_1fhmq"]
 [ext_resource type="Script" path="res://UI/pause_menu.gd" id="1_5c51i"]
 [ext_resource type="PackedScene" uid="uid://d2ypbvp32opvk" path="res://UI/options.tscn" id="1_pxeyw"]
+[ext_resource type="AudioStream" uid="uid://b1m6cyjai3rco" path="res://UI/button_press.mp3" id="4_5k2xc"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -56,6 +57,10 @@ text = "Main Menu"
 [node name="Quit" type="Button" parent="MainPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="buttonPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5k2xc")
+bus = &"SFX"
 
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MainPanel/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
