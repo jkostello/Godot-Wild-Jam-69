@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://qgmj66fv55ig"]
+[gd_scene load_steps=15 format=3 uid="uid://qgmj66fv55ig"]
 
 [ext_resource type="Script" path="res://UI/start_menu.gd" id="1_bwnhk"]
 [ext_resource type="PackedScene" uid="uid://d2ypbvp32opvk" path="res://UI/options.tscn" id="2_ui3rd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://ca4ojcmrepr24" path="res://UI/standard_theme.tres" id="4_xn50i"]
 [ext_resource type="AudioStream" uid="uid://b1m6cyjai3rco" path="res://UI/button_press.mp3" id="5_n0tlp"]
 [ext_resource type="Texture2D" uid="uid://5ys80jrw0k82" path="res://LOGO.png" id="6_2pgai"]
+[ext_resource type="Texture2D" uid="uid://dorlbh1eewmnf" path="res://splash.png" id="6_fxix6"]
 [ext_resource type="Texture2D" uid="uid://cgfbtc8bm1smo" path="res://UI/theme.png" id="6_kt4ji"]
 [ext_resource type="Texture2D" uid="uid://ltmr14d0vm02" path="res://UI/pqyU3o.png" id="7_nngan"]
 [ext_resource type="Texture2D" uid="uid://eutc2c3u8mrl" path="res://UI/wild.png" id="8_7a3jl"]
@@ -70,6 +71,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bwnhk")
+
+[node name="Splash" type="Sprite2D" parent="."]
+position = Vector2(959, 556)
+scale = Vector2(0.639552, 0.639552)
+texture = ExtResource("6_fxix6")
 
 [node name="Options" parent="." instance=ExtResource("2_ui3rd")]
 visible = false
