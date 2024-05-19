@@ -43,6 +43,6 @@ func _on_frametimer_timeout():
 func _on_enemy_spawn_ramper_timeout():
 	if eRampVar >= 20:
 		eRampVar -= 2
-	if sRampVar >= 75:
+	if sRampVar > 100:
 		sRampVar-=1
 	$enemySpawnRamper.start(3)
