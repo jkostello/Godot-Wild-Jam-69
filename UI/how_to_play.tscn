@@ -86,6 +86,7 @@ text = "
 "
 
 [node name="TabContainer" type="TabContainer" parent="Panel/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_pn2y8")
 
@@ -230,10 +231,10 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Turret" type="TabBar" parent="Panel/MarginContainer/VBoxContainer/StructuresContainer"]
-visible = false
 layout_mode = 2
 
 [node name="TurretContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/StructuresContainer/Turret"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -313,7 +314,6 @@ region_enabled = true
 region_rect = Rect2(0, 0, 124.505, -236.125)
 
 [node name="Laser" type="TabBar" parent="Panel/MarginContainer/VBoxContainer/StructuresContainer"]
-visible = false
 layout_mode = 2
 
 [node name="LaserContainer" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer/StructuresContainer/Laser"]
@@ -332,6 +332,12 @@ the void from invading
 your world. If all of
 these die, 
 the game ends!
+
+The laser's health is
+shown by the color of
+its beam. The more
+red, the lower
+the HP.
 
 HP: 100"
 
