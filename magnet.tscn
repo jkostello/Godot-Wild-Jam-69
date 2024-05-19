@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://uqyqil2wo7pp"]
+[gd_scene load_steps=9 format=3 uid="uid://uqyqil2wo7pp"]
 
 [ext_resource type="PackedScene" uid="uid://b1kv3djwawgx" path="res://structure.tscn" id="1_mbeww"]
 [ext_resource type="Texture2D" uid="uid://xlpbskb76g0h" path="res://MAGNET-Sheet.png" id="2_8qygx"]
+[ext_resource type="Script" path="res://magnet.gd" id="2_e8j82"]
 [ext_resource type="Texture2D" uid="uid://bkhif3fnm07yx" path="res://ARROW.png" id="3_xuea0"]
 
 [sub_resource type="Animation" id="Animation_yfhnr"]
@@ -46,6 +47,7 @@ _data = {
 radius = 213.009
 
 [node name="Magnet" instance=ExtResource("1_mbeww")]
+script = ExtResource("2_e8j82")
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -101)
@@ -63,9 +65,11 @@ libraries = {
 }
 
 [node name="Area2D" type="Area2D" parent="." index="3"]
+collision_layer = 66
+collision_mask = 130
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(1, -196)
+position = Vector2(1, -15)
 scale = Vector2(1, 0.5)
 shape = SubResource("CircleShape2D_yis58")
 

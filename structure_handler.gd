@@ -72,6 +72,8 @@ func getBlockVector():
 					highlight_block.get_child(0).visible = true
 				2:
 					highlight_block.get_child(1).visible = true
+				3:
+					highlight_block.get_child(2).visible = true
 		else:
 			highlight_block.modulate = Color(1,0,0,0.3) #if no checks are valid, color red
 			highlight_block.self_modulate = Color(1,1,1,1)
@@ -84,6 +86,9 @@ func getBlockVector():
 			if player.resource < turretCost:
 				highlight_block.modulate = Color(1,0,0,0.3)
 		2:
+			if player.resource < conveyorCost:
+				highlight_block.modulate = Color(1,0,0,0.3)
+		3:
 			if player.resource < conveyorCost:
 				highlight_block.modulate = Color(1,0,0,0.3)
 
@@ -124,6 +129,7 @@ func onButtonPressed(butNum):
 			highlight_block.get_child(1).visible = true
 		3:
 			structure_selected = 3
+			highlight_block.get_child(2).visible = true
 		4:
 			highlight_block.self_modulate = Color(1,1,1,1)
 			structure_selected = 4
@@ -140,6 +146,10 @@ func updateScrapUI(newScrap):
 		%structureBut2.disabled = true
 	else:
 		%structureBut2.disabled = false
+	if player.resource < magnetCost:
+		%structureBut3.disabled = true
+	else:
+		%structureBut3.disabled = false
 
 
 # Creates structures
@@ -172,6 +182,8 @@ func buildStructure():
 				newScrap = floor(turretCost) / 3
 			2:
 				newScrap = floor(conveyorCost) / 2
+			3:
+				newScrap = floor(magnetCost) / 2
 		endBuild()
 		
 	updateScrapUI(newScrap)
