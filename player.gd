@@ -19,6 +19,18 @@ func _physics_process(delta):
 	direction = direction.normalized()
 	velocity = direction * speed
 	velocity = velocity.move_toward(Vector2.ZERO, speed / 4)
+	if velocity != Vector2.ZERO:
+		$AnimationPlayer.play("player_move")
+		if velocity.y < 0:
+			$Sprite.texture = $Sprite/Sprite2D2.texture
+		if velocity.x > 0:
+			$Sprite.texture = $Sprite/Sprite2D4.texture
+		elif velocity.x < 0:
+			$Sprite.texture = $Sprite/Sprite2D3.texture
+		if velocity.y > 0:
+			$Sprite.texture = $Sprite/Sprite2D.texture
+	else:
+		$AnimationPlayer.stop()
 	
 	
 	move_and_slide()
