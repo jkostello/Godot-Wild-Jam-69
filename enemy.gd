@@ -88,7 +88,7 @@ func _physics_process(delta):
 		push_vec += Vector2(-1,0.5)
 	
 	push_vec = push_vec.normalized()
-	velocity = push_vec * 50
+	velocity = push_vec * 15
 	move_and_slide()
 	velocity = temp_v
 

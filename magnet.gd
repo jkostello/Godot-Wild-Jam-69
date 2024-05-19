@@ -33,9 +33,11 @@ func _physics_process(delta):
 			$Sprite2D2.flip_h = true
 			$Sprite2D2.flip_v = false # Change this to vertical sprite
 			target_vec = Vector2(-1,0.5)
-
+	
 func _on_area_2d_area_entered(area):
-	if area.get_parent() in get_tree().get_nodes_in_group("scrap"):
-		area.get_parent().destination_position = position
-		print(target_vec)
-		print(area.get_parent())
+	var p = area.get_parent()
+	if p.is_in_group("scrap"): #get_tree().get_nodes_in_group("scrap"):
+		if p.moving and not p.magnetized:
+			p.magnetized = true
+			p.destination_position = global_position + target_vec * 150
+	

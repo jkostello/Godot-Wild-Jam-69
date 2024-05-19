@@ -54,6 +54,7 @@ func getBlockVector():
 		b.visible=false
 	if structure_selected != 4:
 		rotConveyor() #rotates the conveyor highlight sprite
+		rotMagnet()
 		highlight_block.get_child(structure_selected-1).visible = true
 	if coords.distance_to(player.position) < 500:
 		checkedSpace = checkSpace()
@@ -94,18 +95,35 @@ func getBlockVector():
 
 func rotConveyor():
 	match struct_r:
-				0:
-					highlight_block.get_child(1).flip_h = true
-					highlight_block.get_child(1).flip_v = true # Change this to vertical sprite
-				1:
-					highlight_block.get_child(1).flip_h = false
-					highlight_block.get_child(1).flip_v = true # Change this to vertical sprite
-				2:
-					highlight_block.get_child(1).flip_h = false
-					highlight_block.get_child(1).flip_v = false # Change this to vertical sprite
-				3:
-					highlight_block.get_child(1).flip_h = true
-					highlight_block.get_child(1).flip_v = false
+		0:
+			highlight_block.get_child(1).flip_h = true
+			highlight_block.get_child(1).flip_v = true # Change this to vertical sprite
+		1:
+			highlight_block.get_child(1).flip_h = false
+			highlight_block.get_child(1).flip_v = true # Change this to vertical sprite
+		2:
+			highlight_block.get_child(1).flip_h = false
+			highlight_block.get_child(1).flip_v = false # Change this to vertical sprite
+		3:
+			highlight_block.get_child(1).flip_h = true
+			highlight_block.get_child(1).flip_v = false
+
+
+func rotMagnet():
+	match struct_r:
+		0:
+			highlight_block.get_child(2).flip_h = true
+			highlight_block.get_child(2).flip_v = true # Change this to vertical sprite
+		1:
+			highlight_block.get_child(2).flip_h = false
+			highlight_block.get_child(2).flip_v = true # Change this to vertical sprite
+		2:
+			highlight_block.get_child(2).flip_h = false
+			highlight_block.get_child(2).flip_v = false # Change this to vertical sprite
+		3:
+			highlight_block.get_child(2).flip_h = true
+			highlight_block.get_child(2).flip_v = false
+
 
 func endBuild():
 	highlight_block.visible = false

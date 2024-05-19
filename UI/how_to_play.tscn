@@ -112,8 +112,8 @@ Use your melee weapon
 or construct turrets to
 defeat enemies.
 Use scrap to build
-turrets, repair turrets,
-and repair your lasers.
+structures and 
+repair your lasers.
 
 If all your lasers die,
 you lose!"
@@ -208,9 +208,9 @@ falls from the sky, you
 can collect it by moving
 into it.
 
-Use scrap to build and
-repair structures. To
-repair structures,
+Use scrap to build 
+structures and repair 
+lasers. To repair lasers,
 simply walk into them!."
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Scrap/MarginContainer"]
@@ -270,8 +270,9 @@ theme_override_constants/margin_top = 15
 [node name="ConveyorDescription" type="Label" parent="Panel/MarginContainer/VBoxContainer/StructuresContainer/Conveyor/ConveyorContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "A conveyor belt for
-moving the player.
+text = "A conveyor belt that
+moves the player,
+scrap, and enemies.
 
 Cost: 5 Scrap"
 

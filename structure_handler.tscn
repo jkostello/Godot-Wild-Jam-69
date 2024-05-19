@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bpg2lcg0737in"]
+[gd_scene load_steps=15 format=3 uid="uid://bpg2lcg0737in"]
 
 [ext_resource type="Script" path="res://structure_handler.gd" id="1_sjf38"]
 [ext_resource type="Texture2D" uid="uid://y1qtlj332y4q" path="res://green_highlight.png" id="2_4xf2m"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://1d7r30iygkv7" path="res://PLASMATURRET-Sheet.png" id="5_s0kxp"]
 [ext_resource type="AudioStream" uid="uid://d0xsgl77b48ty" path="res://build.wav" id="6_6ihdj"]
 [ext_resource type="Texture2D" uid="uid://xlpbskb76g0h" path="res://MAGNET-Sheet.png" id="6_wdepu"]
+[ext_resource type="Texture2D" uid="uid://bkhif3fnm07yx" path="res://ARROW.png" id="8_ap6c8"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_d7qj1"]
 device = -1
@@ -139,7 +140,13 @@ texture = ExtResource("5_1xwl3")
 
 [node name="magnetSprite" type="Sprite2D" parent="highlightBlock"]
 visible = false
-position = Vector2(0, -100)
+z_index = -1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_ap6c8")
+
+[node name="magnetSprite" type="Sprite2D" parent="highlightBlock/magnetSprite"]
+position = Vector2(0, -202)
+scale = Vector2(2, 2)
 texture = ExtResource("6_wdepu")
 hframes = 9
 
