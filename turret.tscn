@@ -35,7 +35,7 @@ z_index = 1
 script = ExtResource("2_eq845")
 dmg = 1.0
 range = 300.0
-cd = 1.0
+cd = 1
 durability = 10.0
 
 [node name="Sprite2D" parent="." index="0"]

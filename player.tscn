@@ -1,11 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkwa8366unv8y"]
+[gd_scene load_steps=10 format=3 uid="uid://bkwa8366unv8y"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_e0146"]
 [ext_resource type="Texture2D" uid="uid://dgucnxq52tur2" path="res://sprites/player/down-Sheet.png" id="2_hg67c"]
+[ext_resource type="Texture2D" uid="uid://b6n5u8q4x52be" path="res://sprites/player/up-Sheet.png" id="3_bygfm"]
 [ext_resource type="AudioStream" uid="uid://by3xky47l8vt6" path="res://footstep.wav" id="3_p5ef8"]
+[ext_resource type="Texture2D" uid="uid://dk61c6ndchjix" path="res://sprites/player/right-Sheet.png" id="4_a10be"]
+[ext_resource type="Texture2D" uid="uid://d00fmt0g8j7lv" path="res://sprites/player/left-Sheet.png" id="5_1vttl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rjscj"]
 radius = 27.1662
+
+[sub_resource type="Animation" id="Animation_c3hn5"]
+resource_name = "player_down"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e23s0"]
+_data = {
+"player_move": SubResource("Animation_c3hn5")
+}
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -18,9 +43,25 @@ shape = SubResource("CircleShape2D_rjscj")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(2.98023e-08, -51)
-scale = Vector2(0.613281, 1)
+scale = Vector2(0.8, 1)
 texture = ExtResource("2_hg67c")
 hframes = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite"]
+visible = false
+texture = ExtResource("2_hg67c")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite"]
+visible = false
+texture = ExtResource("3_bygfm")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite"]
+visible = false
+texture = ExtResource("5_1vttl")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite"]
+visible = false
+texture = ExtResource("4_a10be")
 
 [node name="Steptimer" type="Timer" parent="."]
 wait_time = 0.3
@@ -32,5 +73,8 @@ volume_db = -16.109
 bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e23s0")
+}
 
 [connection signal="timeout" from="Steptimer" to="." method="_on_steptimer_timeout"]
