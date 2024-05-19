@@ -6,7 +6,7 @@ extends Structure
 @onready var handler = get_node("/root/Level/CanvasLayer/structure_handler")
 
 @export var dmg : float = 1.0
-@export var range := 700
+@export var range := 300.0
 @export var cd := 0.5
 @export var durability := 10.0
 var primed : bool = true

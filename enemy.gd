@@ -48,8 +48,12 @@ func _physics_process(delta):
 		# Checks if closer turret exists
 		for t in get_tree().get_nodes_in_group("Turret"):
 			var t_dist = global_position.distance_to(t.global_position)
-			if t_dist < global_position.distance_to(closest_target) and t_dist < 200.0: #TODO Should be turret range
+			if t_dist < global_position.distance_to(closest_target): 
 				closest_target = t.global_position
+		
+		if global_position.distance_to(closest_target) > 300.0:
+			closest_target = Vector2.ZERO
+	
 	
 	# If no turrets, set target to laser
 	if not closest_target:
@@ -66,9 +70,11 @@ func _physics_process(delta):
 	var direction = to_local(nav_agent.get_next_path_position()).normalized()
 	
 	if not tangible:
+		$CollisionShape2D.disabled = true
 		velocity = Vector2.ZERO
 		global_position += global_position.normalized() * speed * delta
 	else:
+		$CollisionShape2D.disabled = false
 		velocity = direction * speed
 		if not nav_agent.is_target_reachable():
 			velocity = Vector2.ZERO

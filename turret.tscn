@@ -34,7 +34,7 @@ _data = {
 z_index = 1
 script = ExtResource("2_eq845")
 dmg = 0.5
-range = 300
+range = 300.0
 cd = 0.2
 durability = 10.0
 

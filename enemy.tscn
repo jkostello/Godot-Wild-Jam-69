@@ -48,6 +48,7 @@ frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3psbd")
+disabled = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
