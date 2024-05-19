@@ -217,8 +217,8 @@ repair structures,
 simply walk into them!."
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Scrap/MarginContainer"]
-position = Vector2(311, 308.5)
-scale = Vector2(0.89702, 0.89702)
+position = Vector2(339.011, 352.024)
+scale = Vector2(0.494599, 0.494599)
 texture = ExtResource("4_7odr2")
 
 [node name="Structures" type="TabBar" parent="Panel/MarginContainer/VBoxContainer/TabContainer"]
